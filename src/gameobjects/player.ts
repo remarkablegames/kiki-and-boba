@@ -1,10 +1,16 @@
-import { Tag } from '../constants'
+import { Sprite, Tag } from '../constants'
 import { addCursorKeys } from '../events'
-import { bean } from '../sprites'
 import { addBullet } from './bullet'
 
 export function addPlayer(x = center().x, y = center().y) {
-  const player = add([bean, pos(x, y), rotate(0), anchor('center'), Tag.player])
+  const player = add([
+    sprite(Sprite.bean),
+    pos(x, y),
+    rotate(0),
+    anchor('center'),
+    area(),
+    Tag.player,
+  ])
 
   addCursorKeys(player)
 
@@ -14,5 +20,3 @@ export function addPlayer(x = center().x, y = center().y) {
 
   return player
 }
-
-export type Player = ReturnType<typeof addPlayer>

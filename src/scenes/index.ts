@@ -1,7 +1,7 @@
 import './game'
 import './preload'
 
-import { Scene } from '../types'
+import { Scene } from '../constants'
 
 export function start() {
   go(Scene.preload)

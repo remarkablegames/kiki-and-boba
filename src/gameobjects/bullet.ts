@@ -1,7 +1,8 @@
 import { Tag } from '../constants'
-import type { Player } from './player'
+import type { Enemy, Player } from '../types'
 
 const BULLET_SPEED = 600
+const BULLET_DAMAGE = 20
 
 export function addBullet(player: Player) {
   const bullet = add([
@@ -14,6 +15,12 @@ export function addBullet(player: Player) {
     color(0, 0, 255),
     Tag.bullet,
   ])
+
+  bullet.onCollide(Tag.enemy, (enemy) => {
+    bullet.destroy()
+    const currentEnemy = enemy as Enemy
+    currentEnemy.hurt(BULLET_DAMAGE)
+  })
 
   return bullet
 }
