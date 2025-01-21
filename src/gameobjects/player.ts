@@ -4,12 +4,12 @@ import { addBullet } from './bullet'
 
 export function addPlayer(x = center().x, y = center().y) {
   const player = add([
-    sprite(Sprite.bean),
+    sprite(Sprite.Bean),
     pos(x, y),
     rotate(0),
     anchor('center'),
     area(),
-    Tag.player,
+    Tag.Player,
   ])
 
   addCursorKeys(player)

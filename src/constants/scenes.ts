@@ -1,4 +1,4 @@
 export enum Scene {
-  game = 'game',
-  preload = 'preload',
+  Game = 'Game',
+  Preload = 'Preload',
 }

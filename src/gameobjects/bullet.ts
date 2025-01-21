@@ -13,10 +13,10 @@ export function addBullet(player: Player) {
     offscreen({ destroy: true }),
     anchor('center'),
     color(0, 0, 255),
-    Tag.bullet,
+    Tag.Bullet,
   ])
 
-  bullet.onCollide(Tag.enemy, (enemy) => {
+  bullet.onCollide(Tag.Enemy, (enemy) => {
     bullet.destroy()
     const currentEnemy = enemy as Enemy
     currentEnemy.hurt(BULLET_DAMAGE)

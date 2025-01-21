@@ -1,4 +1,4 @@
 export enum Sprite {
-  bean = 'bean',
-  ghosty = 'ghosty',
+  Bean = 'Bean',
+  Ghosty = 'Ghosty',
 }

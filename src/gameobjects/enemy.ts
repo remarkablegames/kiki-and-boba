@@ -5,13 +5,13 @@ const ENEMY_SPEED = 200
 
 export function addEnemy(x: number, y: number, player: Player) {
   const enemy = add([
-    sprite(Sprite.ghosty),
+    sprite(Sprite.Ghosty),
     pos(x, y),
     anchor('center'),
     health(100),
     opacity(1),
     area(),
-    Tag.enemy,
+    Tag.Enemy,
   ])
 
   enemy.onUpdate(() => {

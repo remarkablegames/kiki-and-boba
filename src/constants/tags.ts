@@ -1,5 +1,5 @@
 export enum Tag {
-  'bullet' = 'bullet',
-  'enemy' = 'enemy',
-  'player' = 'player',
+  'Bullet' = 'Bullet',
+  'Enemy' = 'Enemy',
+  'Player' = 'Player',
 }
