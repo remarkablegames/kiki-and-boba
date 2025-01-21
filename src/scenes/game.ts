@@ -7,8 +7,28 @@ scene(Scene.Game, () => {
   add([text('Press arrow keys', { width: width() / 2 }), pos(12, 12)])
 
   loop(5, () => {
-    const x = rand(0, width())
-    const y = rand(0, height())
-    addEnemy(x, y, player)
+    if (coinflip()) {
+      // right
+      addEnemy(width(), rand(0, height()), player)
+    }
+
+    if (coinflip()) {
+      // left
+      addEnemy(-32, rand(0, height()), player)
+    }
+
+    if (coinflip()) {
+      // top
+      addEnemy(rand(0, width()), height(), player)
+    }
+
+    if (coinflip()) {
+      // bottom
+      addEnemy(rand(0, width()), -32, player)
+    }
   })
 })
+
+function coinflip() {
+  return Boolean(randi(2))
+}

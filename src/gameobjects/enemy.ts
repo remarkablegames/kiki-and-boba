@@ -1,7 +1,8 @@
 import { Sprite, Tag } from '../constants'
 import type { Player } from '../types'
 
-const ENEMY_SPEED = 200
+const ENEMY_SPEED_MIN = 100
+const ENEMY_SPEED_MAX = 300
 
 export function addEnemy(x: number, y: number, player: Player) {
   const enemy = add([
@@ -16,7 +17,7 @@ export function addEnemy(x: number, y: number, player: Player) {
 
   enemy.onUpdate(() => {
     const dir = player.pos.sub(enemy.pos).unit()
-    enemy.move(dir.scale(ENEMY_SPEED))
+    enemy.move(dir.scale(rand(ENEMY_SPEED_MIN, ENEMY_SPEED_MAX)))
   })
 
   enemy.onHurt(() => {
