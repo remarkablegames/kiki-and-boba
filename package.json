@@ -1,5 +1,5 @@
 {
-  "name": "kaplay-template",
+  "name": "kiki-and-boba",
   "version": "1.0.0-alpha",
   "description": "A template for building Kaplay games.",
   "author": "Mark <mark@remarkablemark.org>",
@@ -14,7 +14,7 @@
     "preview": "vite preview",
     "start": "vite --open"
   },
-  "homepage": "https://remarkablegames.org/kaplay-template/",
+  "homepage": "https://remarkablegames.org/kiki-and-boba/",
   "dependencies": {
     "kaplay": "3001.0.9"
   },
