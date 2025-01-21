@@ -1,0 +1,41 @@
+{
+  "name": "kaplay-template",
+  "version": "1.0.0-alpha",
+  "description": "A template for building Kaplay games.",
+  "author": "Mark <mark@remarkablemark.org>",
+  "scripts": {
+    "build": "npm run clean && vite build",
+    "bundle": "scripts/bundle.sh",
+    "clean": "rm -rf dist",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:tsc": "tsc --noEmit",
+    "prepare": "husky",
+    "preview": "vite preview",
+    "start": "vite --open"
+  },
+  "homepage": "https://remarkablegames.org/kaplay-template/",
+  "dependencies": {
+    "kaplay": "3001.0.9"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.6.1",
+    "@commitlint/config-conventional": "19.6.0",
+    "@eslint/compat": "1.2.5",
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.18.0",
+    "@typescript-eslint/eslint-plugin": "8.21.0",
+    "@typescript-eslint/parser": "8.21.0",
+    "eslint": "9.18.0",
+    "eslint-plugin-prettier": "5.2.3",
+    "eslint-plugin-simple-import-sort": "12.1.1",
+    "husky": "9.1.7",
+    "lint-staged": "15.4.1",
+    "prettier": "3.4.2",
+    "typescript": "5.7.3",
+    "vite": "6.0.10",
+    "vite-plugin-html": "3.2.2"
+  },
+  "private": true,
+  "license": "MIT"
+}
