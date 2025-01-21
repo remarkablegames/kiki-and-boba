@@ -1,15 +1,8 @@
-import { addCursorKeys } from '../events'
 import { addEnemy, addPlayer } from '../gameobjects'
 import { Scene } from '../types'
 
 scene(Scene.game, () => {
-  const player = addPlayer()
-
-  player.onUpdate(() => {
-    player.angle += 120 * dt()
-  })
-
-  addCursorKeys(player)
+  addPlayer()
 
   onClick(() => addKaboom(mousePos()))
 
