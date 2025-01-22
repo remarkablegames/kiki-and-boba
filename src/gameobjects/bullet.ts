@@ -1,14 +1,14 @@
 import { Tag } from '../constants'
 import type { Enemy, Player } from '../types'
 
-const BULLET_SPEED = 600
+const BULLET_SPEED = 200
 const BULLET_DAMAGE = 20
 
 export function addBullet(player: Player) {
   const bullet = add([
     pos(player.pos),
     move(getBulletDir(player), BULLET_SPEED),
-    circle(6),
+    circle(30),
     area(),
     offscreen({ destroy: true }),
     anchor('center'),
