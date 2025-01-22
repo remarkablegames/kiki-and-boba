@@ -3,9 +3,10 @@ import type { Player } from '../types'
 
 export function addEnemy(x: number, y: number, player: Player) {
   const speed = rand(100, 300)
+  const sprites = [Sprite.Bubbie, Sprite.Pokey]
 
   const enemy = add([
-    sprite(Sprite.Ghosty),
+    sprite(sprites[randi(sprites.length)]),
     pos(x, y),
     anchor('center'),
     health(100),
