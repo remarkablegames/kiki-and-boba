@@ -9,7 +9,7 @@ export function addEnemy(x: number, y: number, player: Player) {
     sprite(sprites[randi(sprites.length)]),
     pos(x, y),
     anchor('center'),
-    health(100),
+    health(randi(20, 100)),
     opacity(1),
     area(),
     Tag.Enemy,
