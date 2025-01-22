@@ -1,15 +1,21 @@
 import { Sprite, Tag } from '../constants'
 import type { Player } from '../types'
 
+enum Health {
+  Min = 20,
+  Max = 100,
+}
+
 export function addEnemy(x: number, y: number, player: Player) {
-  const speed = rand(100, 300)
   const sprites = [Sprite.Bubbie, Sprite.Pokey]
+  const speed = rand(100, 300)
+  const hp = randi(Health.Min, Health.Max)
 
   const enemy = add([
     sprite(sprites[randi(sprites.length)]),
     pos(x, y),
     anchor('center'),
-    health(randi(20, 100)),
+    health(hp, hp),
     opacity(1),
     area(),
     scale(0.75),
@@ -23,7 +29,7 @@ export function addEnemy(x: number, y: number, player: Player) {
   })
 
   enemy.onHurt(() => {
-    enemy.opacity = enemy.hp() / 100
+    enemy.opacity = enemy.hp() / enemy.maxHP()!
   })
 
   enemy.onDeath(() => {
