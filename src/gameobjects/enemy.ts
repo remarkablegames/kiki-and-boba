@@ -1,10 +1,9 @@
 import { Sprite, Tag } from '../constants'
 import type { Player } from '../types'
 
-const ENEMY_SPEED_MIN = 100
-const ENEMY_SPEED_MAX = 300
-
 export function addEnemy(x: number, y: number, player: Player) {
+  const speed = rand(100, 300)
+
   const enemy = add([
     sprite(Sprite.Ghosty),
     pos(x, y),
@@ -13,11 +12,12 @@ export function addEnemy(x: number, y: number, player: Player) {
     opacity(1),
     area(),
     Tag.Enemy,
+    { speed },
   ])
 
   enemy.onUpdate(() => {
-    const dir = player.pos.sub(enemy.pos).unit()
-    enemy.move(dir.scale(rand(ENEMY_SPEED_MIN, ENEMY_SPEED_MAX)))
+    const direction = player.pos.sub(enemy.pos).unit()
+    enemy.move(direction.scale(enemy.speed))
   })
 
   enemy.onHurt(() => {
