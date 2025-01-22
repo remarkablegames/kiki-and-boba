@@ -12,6 +12,7 @@ export function addEnemy(x: number, y: number, player: Player) {
     health(randi(20, 100)),
     opacity(1),
     area(),
+    scale(0.75),
     Tag.Enemy,
     { speed },
   ])
