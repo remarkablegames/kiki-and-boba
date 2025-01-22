@@ -7,27 +7,23 @@ scene(Scene.Game, () => {
   add([text('Press arrow keys', { width: width() / 2 }), pos(12, 12)])
 
   loop(5, () => {
-    if (coinflip()) {
-      // right
-      addEnemy(width(), rand(0, height()), player)
-    }
-
-    if (coinflip()) {
-      // left
-      addEnemy(-32, rand(0, height()), player)
-    }
-
-    if (coinflip()) {
-      // top
-      addEnemy(rand(0, width()), height(), player)
-    }
-
-    if (coinflip()) {
-      // bottom
-      addEnemy(rand(0, width()), -32, player)
-    }
+    const { x, y } = coordinates(player.pos.x, player.pos.y)
+    addEnemy(x, y, player)
   })
 })
+
+/**
+ * Random coordinates outside the camera view.
+ */
+function coordinates(x: number, y: number) {
+  const halfWidth = width() / 2
+  const halfHeight = height() / 2
+  const multiplier = coinflip() ? 1 : -1
+  return {
+    x: x + halfWidth * multiplier,
+    y: y + halfHeight * multiplier,
+  }
+}
 
 function coinflip() {
   return Boolean(randi(2))
