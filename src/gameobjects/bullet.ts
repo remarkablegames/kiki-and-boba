@@ -27,9 +27,10 @@ export function addBullet(player: Player) {
 
 function getBulletDir(player: Player) {
   const mousePosition = mousePos()
+  const playerPosition = player.screenPos()
   const angle = Math.atan2(
-    mousePosition.y - player.pos.y,
-    mousePosition.x - player.pos.x,
+    mousePosition.y - playerPosition!.y,
+    mousePosition.x - playerPosition!.x,
   )
   const degrees = (angle * 180) / Math.PI
   return degrees
