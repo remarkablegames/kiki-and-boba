@@ -13,10 +13,6 @@ export function addPlayer(x = center().x, y = center().y) {
     Tag.Player,
   ])
 
-  player.onUpdate(() => {
-    setCamPos(player.worldPos()!)
-  })
-
   addCursorKeys(player)
 
   const attack = new Attack(player)
