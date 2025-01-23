@@ -5,16 +5,24 @@ import { Music } from '../constants'
 let music: AudioPlay
 
 export function playMusic() {
-  if (!music) {
-    music = play(Music.Background, {
-      loop: true,
-      paused: true,
-    })
-    music.volume = 0.5
+  if (music) {
+    return music.play()
   }
-  music.play()
+
+  const currentMusic = play(Music.Background, {
+    loop: true,
+    paused: true,
+  })
+
+  currentMusic.volume = 0.5
+  setMusic(currentMusic)
+  playMusic()
+}
+
+function setMusic(currentMusic: AudioPlay) {
+  music = currentMusic
 }
 
 export function stopMusic() {
-  music.stop()
+  music?.stop()
 }

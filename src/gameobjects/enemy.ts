@@ -1,5 +1,6 @@
 import { Sound, Sprite, Tag } from '../constants'
 import type { Player } from '../types'
+import { incrementScore } from './score'
 
 enum Health {
   Min = 20,
@@ -60,6 +61,7 @@ export function addEnemy(x: number, y: number, player: Player) {
   })
 
   enemy.onDeath(() => {
+    incrementScore()
     play(Sound.Explode, { volume: 0.2 })
     enemy.destroy()
     addKaboom(enemy.pos)
