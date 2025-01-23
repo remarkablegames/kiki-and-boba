@@ -1,4 +1,4 @@
-import { Sprite, Tag } from '../constants'
+import { Scene, Sprite, Tag } from '../constants'
 import { addAttack, addCursorKeys } from '../events'
 import type { Enemy } from '../types'
 
@@ -21,6 +21,12 @@ export function addPlayer(x = center().x, y = center().y) {
   player.onCollide(Tag.Enemy, (enemy) => {
     const currentEnemy = enemy as Enemy
     player.hurt(currentEnemy.damage)
+  })
+
+  player.onHurt(() => {
+    if (player.hp() <= 0) {
+      go(Scene.Lose)
+    }
   })
 
   return player
