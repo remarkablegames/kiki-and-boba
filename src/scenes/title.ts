@@ -1,6 +1,6 @@
 import { Scene, Sound } from '../constants'
 
-scene(Scene.Lose, () => {
+scene(Scene.Title, () => {
   const { x, y } = center()
   const margin = 100
 
@@ -12,7 +12,7 @@ scene(Scene.Lose, () => {
   ])
 
   textbox.add([
-    text('Game Over', { size: 48 }),
+    text('Kiki & Boba', { size: 48 }),
     anchor('center'),
     color(0, 0, 0),
   ])
@@ -27,7 +27,7 @@ scene(Scene.Lose, () => {
     color(255, 255, 255),
   ])
 
-  button.add([text('Restart'), anchor('center'), color(0, 0, 0)])
+  button.add([text('Play'), anchor('center'), color(0, 0, 0)])
 
   button.onHover(() => {
     button.scaleTo(1.1)

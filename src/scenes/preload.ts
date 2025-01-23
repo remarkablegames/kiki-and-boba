@@ -31,5 +31,5 @@ scene(Scene.Preload, () => {
     loadMusic(name, src)
   })
 
-  go(Scene.Game)
+  go(Scene.Title)
 })

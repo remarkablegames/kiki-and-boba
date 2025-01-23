@@ -1,6 +1,7 @@
 import './game'
 import './lose'
 import './preload'
+import './title'
 
 import { Scene } from '../constants'
 

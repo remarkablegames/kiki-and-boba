@@ -5,7 +5,8 @@ import { outsideCoordinates } from '../helpers'
 scene(Scene.Game, () => {
   const textbox = add([
     rect(580, 80),
-    pos(center().x - 580 / 2, 12),
+    pos(center().x, 80),
+    anchor('center'),
     color(255, 255, 255),
   ])
 
@@ -13,7 +14,7 @@ scene(Scene.Game, () => {
     text('WASD or arrow keys to move\nLeft click to shoot', {
       width: width() / 2,
     }),
-    pos(4, 4),
+    anchor('center'),
     color(0, 0, 0),
   ])
 
