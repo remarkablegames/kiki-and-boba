@@ -3,7 +3,19 @@ import { addEnemy, addHealth, addPlayer, playMusic } from '../gameobjects'
 import { outsideCoordinates } from '../helpers'
 
 scene(Scene.Game, () => {
-  add([text('Press arrow keys', { width: width() / 2 }), pos(12, 12)])
+  const textbox = add([
+    rect(580, 80),
+    pos(center().x - 580 / 2, 12),
+    color(255, 255, 255),
+  ])
+
+  textbox.add([
+    text('WASD or arrow keys to move\nLeft click to shoot', {
+      width: width() / 2,
+    }),
+    pos(4, 4),
+    color(0, 0, 0),
+  ])
 
   playMusic()
 
