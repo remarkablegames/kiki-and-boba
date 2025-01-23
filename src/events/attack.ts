@@ -8,7 +8,7 @@ export function addAttack(player: Player) {
   onClick(() => {
     if (attack.canAttack()) {
       attack.update()
-      play(Sound.Shoot)
+      play(Sound.Shoot, { detune: rand(-100, 100) })
       addBullet(player)
     }
   })
