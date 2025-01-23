@@ -12,7 +12,13 @@ enum State {
 }
 
 export function addEnemy(x: number, y: number, player: Player) {
-  const sprites = [Sprite.Bubbie, Sprite.Pokey]
+  const sprites = [
+    Sprite.Bubbie,
+    Sprite.Gooba,
+    Sprite.Pokey,
+    Sprite.Shellie,
+    Sprite.Spiny,
+  ]
   const speed = rand(100, 300)
   const damage = rand(1, 10)
   const hp = randi(Health.Min, Health.Max)
