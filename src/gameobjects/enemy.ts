@@ -9,6 +9,7 @@ enum Health {
 export function addEnemy(x: number, y: number, player: Player) {
   const sprites = [Sprite.Bubbie, Sprite.Pokey]
   const speed = rand(100, 300)
+  const damage = rand(1, 10)
   const hp = randi(Health.Min, Health.Max)
 
   const enemy = add([
@@ -20,7 +21,7 @@ export function addEnemy(x: number, y: number, player: Player) {
     area(),
     scale(0.75),
     Tag.Enemy,
-    { speed },
+    { damage, speed },
   ])
 
   enemy.onUpdate(() => {
