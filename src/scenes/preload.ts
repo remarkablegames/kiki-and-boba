@@ -1,4 +1,4 @@
-import { Scene, Sound, Sprite } from '../constants'
+import { Music, Scene, Sound, Sprite } from '../constants'
 
 scene(Scene.Preload, () => {
   const sprites = [
@@ -18,6 +18,12 @@ scene(Scene.Preload, () => {
 
   sounds.forEach(([name, src]) => {
     loadSound(name, src)
+  })
+
+  const music = [[Music.Background, 'music/background.mp3']]
+
+  music.forEach(([name, src]) => {
+    loadMusic(name, src)
   })
 
   go(Scene.Game)

@@ -1,9 +1,11 @@
 import { Scene } from '../constants'
-import { addEnemy, addHealth, addPlayer } from '../gameobjects'
+import { addEnemy, addHealth, addPlayer, playMusic } from '../gameobjects'
 import { outsideCoordinates } from '../helpers'
 
 scene(Scene.Game, () => {
   add([text('Press arrow keys', { width: width() / 2 }), pos(12, 12)])
+
+  playMusic()
 
   const player = addPlayer()
   addHealth(player)

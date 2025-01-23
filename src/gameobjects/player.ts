@@ -1,5 +1,6 @@
 import { Scene, Sprite, Tag } from '../constants'
 import { addAttack, addCursorKeys } from '../events'
+import { stopMusic } from '../gameobjects'
 
 const HEALTH = 100
 
@@ -24,6 +25,7 @@ export function addPlayer(x = center().x, y = center().y) {
 
   player.onHurt(() => {
     if (player.hp() <= 0) {
+      stopMusic()
       go(Scene.Lose)
     }
   })
