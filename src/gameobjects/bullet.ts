@@ -1,4 +1,4 @@
-import { Tag } from '../constants'
+import { Sound, Tag } from '../constants'
 import type { Enemy, Player } from '../types'
 
 const BULLET_SPEED = 200
@@ -17,6 +17,7 @@ export function addBullet(player: Player) {
   ])
 
   bullet.onCollide(Tag.Enemy, (enemy) => {
+    play(Sound.Hit)
     bullet.destroy()
     const currentEnemy = enemy as Enemy
     currentEnemy.hurt(BULLET_DAMAGE)

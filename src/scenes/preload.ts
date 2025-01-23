@@ -14,7 +14,11 @@ scene(Scene.Preload, () => {
     loadSprite(name, src)
   })
 
-  const sounds = [[Sound.Shoot, 'sounds/shoot.mp3']]
+  const sounds = [
+    [Sound.Explode, 'sounds/explode.mp3'],
+    [Sound.Hit, 'sounds/hit.mp3'],
+    [Sound.Shoot, 'sounds/shoot.mp3'],
+  ]
 
   sounds.forEach(([name, src]) => {
     loadSound(name, src)

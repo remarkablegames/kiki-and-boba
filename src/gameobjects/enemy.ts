@@ -1,4 +1,4 @@
-import { Sprite, Tag } from '../constants'
+import { Sound, Sprite, Tag } from '../constants'
 import type { Player } from '../types'
 
 enum Health {
@@ -60,6 +60,7 @@ export function addEnemy(x: number, y: number, player: Player) {
   })
 
   enemy.onDeath(() => {
+    play(Sound.Explode, { volume: 0.2 })
     enemy.destroy()
     addKaboom(enemy.pos)
   })
