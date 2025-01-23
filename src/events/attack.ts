@@ -1,3 +1,4 @@
+import { Sound } from '../constants'
 import { addBullet } from '../gameobjects'
 import type { Player } from '../types'
 
@@ -7,6 +8,7 @@ export function addAttack(player: Player) {
   onClick(() => {
     if (attack.canAttack()) {
       attack.update()
+      play(Sound.Shoot)
       addBullet(player)
     }
   })
