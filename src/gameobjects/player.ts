@@ -1,4 +1,4 @@
-import { Scene, Sprite, Tag } from '../constants'
+import { Scene, Sound, Sprite, Tag } from '../constants'
 import { addAttack, addCursorKeys } from '../events'
 import { stopMusic } from '../gameobjects'
 
@@ -24,8 +24,11 @@ export function addPlayer(x = center().x, y = center().y) {
   })
 
   player.onHurt(() => {
+    play(Sound.Hit)
+
     if (player.hp() <= 0) {
       stopMusic()
+      play(Sound.Whoosh)
       go(Scene.Lose)
     }
   })

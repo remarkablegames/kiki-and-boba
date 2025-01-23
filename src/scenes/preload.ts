@@ -18,6 +18,7 @@ scene(Scene.Preload, () => {
     [Sound.Explode, 'sounds/explode.mp3'],
     [Sound.Hit, 'sounds/hit.mp3'],
     [Sound.Shoot, 'sounds/shoot.mp3'],
+    [Sound.Whoosh, 'sounds/whoosh.mp3'],
   ]
 
   sounds.forEach(([name, src]) => {
