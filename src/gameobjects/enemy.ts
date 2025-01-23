@@ -6,6 +6,11 @@ enum Health {
   Max = 100,
 }
 
+enum State {
+  Idle = 'Idle',
+  Move = 'Move',
+}
+
 export function addEnemy(x: number, y: number, player: Player) {
   const sprites = [Sprite.Bubbie, Sprite.Pokey]
   const speed = rand(100, 300)
@@ -21,13 +26,27 @@ export function addEnemy(x: number, y: number, player: Player) {
     area(),
     body(),
     scale(0.75),
+    state(State.Move, Object.values(State)),
     Tag.Enemy,
     { damage, speed },
   ])
 
-  enemy.onUpdate(() => {
+  enemy.onStateEnter(State.Idle, async () => {
+    await wait(rand(1, 3))
+    enemy.enterState(State.Move)
+  })
+
+  enemy.onStateUpdate(State.Move, () => {
+    if (!player.exists()) {
+      return
+    }
     const direction = player.pos.sub(enemy.pos).unit()
     enemy.move(direction.scale(enemy.speed))
+  })
+
+  enemy.onCollide(Tag.Player, () => {
+    enemy.enterState(State.Idle)
+    player.hurt(enemy.damage)
   })
 
   enemy.onHurt(() => {
