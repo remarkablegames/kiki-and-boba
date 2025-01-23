@@ -11,12 +11,17 @@ export function addPlayer(x = center().x, y = center().y) {
     rotate(0),
     anchor('center'),
     area(),
+    body(),
     health(HEALTH, HEALTH),
     Tag.Player,
   ])
 
   addCursorKeys(player)
   addAttack(player)
+
+  player.onUpdate(() => {
+    setCamPos(player.worldPos()!)
+  })
 
   player.onCollide(Tag.Enemy, (enemy) => {
     const currentEnemy = enemy as Enemy

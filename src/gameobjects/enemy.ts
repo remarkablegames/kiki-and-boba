@@ -19,6 +19,7 @@ export function addEnemy(x: number, y: number, player: Player) {
     health(hp, hp),
     opacity(1),
     area(),
+    body(),
     scale(0.75),
     Tag.Enemy,
     { damage, speed },
