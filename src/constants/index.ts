@@ -1,3 +1,4 @@
+export * from './animations'
 export * from './music'
 export * from './scenes'
 export * from './sounds'

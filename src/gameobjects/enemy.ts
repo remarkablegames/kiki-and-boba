@@ -1,4 +1,4 @@
-import { Sound, Sprite, Tag } from '../constants'
+import { Animation, Sound, Sprite, Tag } from '../constants'
 import type { Player } from '../types'
 import { incrementScore } from './score'
 
@@ -7,10 +7,7 @@ enum Health {
   Max = 100,
 }
 
-enum State {
-  Idle = 'Idle',
-  Move = 'Move',
-}
+const State = Animation
 
 export function addEnemy(x: number, y: number, player: Player) {
   const sprites = [
@@ -33,34 +30,61 @@ export function addEnemy(x: number, y: number, player: Player) {
     area(),
     body(),
     scale(0.75),
-    state(State.Move, Object.values(State)),
+    state(State.Attack, Object.values(State)),
     Tag.Enemy,
     { damage, speed },
   ])
 
   enemy.onStateEnter(State.Idle, async () => {
-    await wait(rand(1, 3))
-    enemy.enterState(State.Move)
+    try {
+      enemy.play(State.Idle)
+    } catch (error) {} // eslint-disable-line
+    await wait(rand(0, 1))
+    enemy.enterState(State.Attack)
   })
 
-  enemy.onStateUpdate(State.Move, () => {
+  enemy.onStateEnter(State.Stunned, async () => {
+    try {
+      enemy.play(State.Stunned)
+    } catch (error) {} // eslint-disable-line
+    await wait(rand(0, 1))
+    enemy.enterState(State.Attack)
+  })
+
+  enemy.onStateEnter(State.Cooldown, async () => {
+    try {
+      enemy.play(State.Cooldown)
+    } catch (error) {} // eslint-disable-line
+    await wait(rand(1, 3))
+    enemy.enterState(State.Attack)
+  })
+
+  enemy.onStateUpdate(State.Attack, () => {
     if (!player.exists()) {
       return
     }
+    try {
+      enemy.play(State.Attack)
+    } catch (error) {} // eslint-disable-line
     const direction = player.pos.sub(enemy.pos).unit()
     enemy.move(direction.scale(enemy.speed))
   })
 
-  enemy.onCollide(Tag.Player, () => {
-    enemy.enterState(State.Idle)
+  enemy.onCollide(Tag.Player, async () => {
+    enemy.enterState(State.Cooldown)
     player.hurt(enemy.damage)
   })
 
   enemy.onHurt(() => {
+    enemy.enterState(State.Stunned)
+    try {
+      enemy.play(State.Stunned)
+    } catch (error) {} // eslint-disable-line
     enemy.opacity = enemy.hp() / enemy.maxHP()!
   })
 
   enemy.onDeath(() => {
+    enemy.enterState(State.Stunned)
     incrementScore()
     play(Sound.Explode, { volume: 0.2 })
     enemy.destroy()

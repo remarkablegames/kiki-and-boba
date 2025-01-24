@@ -1,12 +1,21 @@
-import { Music, Scene, Sound, Sprite } from '../constants'
+import { Animation, Music, Scene, Sound, Sprite } from '../constants'
 
 scene(Scene.Preload, () => {
+  loadSprite(Sprite.Shellie, 'sprites/shellie.png', {
+    sliceX: Object.keys(Animation).length,
+    anims: {
+      [Animation.Attack]: 1,
+      [Animation.Cooldown]: 2,
+      [Animation.Idle]: 0,
+      [Animation.Stunned]: 3,
+    },
+  })
+
   const sprites = [
     [Sprite.Bean, 'sprites/bean.png'],
     [Sprite.Bubbie, 'sprites/bubbie.png'],
     [Sprite.Gooba, 'sprites/gooba.png'],
     [Sprite.Pokey, 'sprites/pokey.png'],
-    [Sprite.Shellie, 'sprites/shellie.png'],
     [Sprite.Spiny, 'sprites/spiny.png'],
   ]
 
