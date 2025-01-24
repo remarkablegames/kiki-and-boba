@@ -11,6 +11,7 @@ scene(Scene.Preload, () => {
       sliceX: 4,
       anims: {
         [Animation.Idle]: 0,
+        [Animation.Move]: 0,
         [Animation.Attack]: 1,
         [Animation.Cooldown]: 2,
         [Animation.Stunned]: 3,
@@ -21,14 +22,13 @@ scene(Scene.Preload, () => {
   loadSprite(Sprite.Pokey, 'sprites/pokey.png', {
     sliceX: 5,
     anims: {
+      [Animation.Idle]: 3,
+      [Animation.Move]: 0,
       [Animation.Attack]: {
         from: 1,
         to: 2,
-        loop: true,
-        speed: 1,
       },
       [Animation.Cooldown]: 0,
-      [Animation.Idle]: 3,
       [Animation.Stunned]: 4,
     },
   })
@@ -43,9 +43,10 @@ scene(Scene.Preload, () => {
   sprites.forEach(([name, src]) => {
     loadSprite(name, src, {
       anims: {
+        [Animation.Idle]: 0,
+        [Animation.Move]: 0,
         [Animation.Attack]: 0,
         [Animation.Cooldown]: 0,
-        [Animation.Idle]: 0,
         [Animation.Stunned]: 0,
       },
     })

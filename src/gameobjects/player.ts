@@ -1,6 +1,7 @@
 import { Scene, Sound, Sprite, Tag } from '../constants'
 import { addAttack, addCursorKeys } from '../events'
 import { stopMusic } from '../gameobjects'
+import type { Player } from '../types'
 
 const HEALTH = 100
 
@@ -34,4 +35,8 @@ export function addPlayer(x = center().x, y = center().y) {
   })
 
   return player
+}
+
+export function getPlayer() {
+  return get(Tag.Player)[0] as Player | undefined
 }

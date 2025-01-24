@@ -30,6 +30,6 @@ scene(Scene.Game, () => {
 
   loop(5, () => {
     const { x, y } = outsideCoordinates(player.pos.x, player.pos.y)
-    addEnemy(x, y, player)
+    addEnemy(x, y)
   })
 })
