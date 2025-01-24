@@ -38,33 +38,25 @@ export function addEnemy(x: number, y: number, player: Player) {
   ])
 
   enemy.onStateEnter(State.Idle, async () => {
-    try {
-      enemy.play(State.Idle)
-    } catch (error) {} // eslint-disable-line
+    enemy.play(State.Idle)
     await wait(rand(0, 1))
     enemy.enterState(State.Attack)
   })
 
   enemy.onStateEnter(State.Stunned, async () => {
-    try {
-      enemy.play(State.Stunned)
-    } catch (error) {} // eslint-disable-line
+    enemy.play(State.Stunned)
     await wait(rand(0, 1))
     enemy.enterState(State.Attack)
   })
 
   enemy.onStateEnter(State.Cooldown, async () => {
-    try {
-      enemy.play(State.Cooldown)
-    } catch (error) {} // eslint-disable-line
+    enemy.play(State.Cooldown)
     await wait(rand(1, 3))
     enemy.enterState(State.Attack)
   })
 
   enemy.onStateEnter(State.Attack, async () => {
-    try {
-      enemy.play(State.Attack)
-    } catch (error) {} // eslint-disable-line
+    enemy.play(State.Attack)
     if (enemy.sprite === Sprite.Pokey) {
       addProjectile(enemy, player)
     }
@@ -90,9 +82,7 @@ export function addEnemy(x: number, y: number, player: Player) {
 
   enemy.onHurt(() => {
     enemy.enterState(State.Stunned)
-    try {
-      enemy.play(State.Stunned)
-    } catch (error) {} // eslint-disable-line
+    enemy.play(State.Stunned)
     enemy.opacity = enemy.hp() / enemy.maxHP()!
   })
 

@@ -35,7 +35,14 @@ scene(Scene.Preload, () => {
   ]
 
   sprites.forEach(([name, src]) => {
-    loadSprite(name, src)
+    loadSprite(name, src, {
+      anims: {
+        [Animation.Attack]: 0,
+        [Animation.Cooldown]: 0,
+        [Animation.Idle]: 0,
+        [Animation.Stunned]: 0,
+      },
+    })
   })
 
   const sounds = [
