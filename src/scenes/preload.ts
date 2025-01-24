@@ -22,12 +22,12 @@ scene(Scene.Preload, () => {
     sliceX: 5,
     anims: {
       [Animation.Attack]: {
-        from: 0,
-        to: 1,
+        from: 1,
+        to: 2,
         loop: true,
         speed: 1,
       },
-      [Animation.Cooldown]: 2,
+      [Animation.Cooldown]: 0,
       [Animation.Idle]: 3,
       [Animation.Stunned]: 4,
     },
