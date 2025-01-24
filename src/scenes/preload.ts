@@ -2,6 +2,7 @@ import { Animation, Music, Scene, Sound, Sprite } from '../constants'
 
 scene(Scene.Preload, () => {
   const spritesheets = [
+    [Sprite.Bubbie, 'sprites/bubbie.png'],
     [Sprite.Shellie, 'sprites/shellie.png'],
     [Sprite.Spiny, 'sprites/spiny.png'],
   ]
@@ -35,7 +36,6 @@ scene(Scene.Preload, () => {
 
   const sprites = [
     [Sprite.Bean, 'sprites/bean.png'],
-    [Sprite.Bubbie, 'sprites/bubbie.png'],
     [Sprite.Gooba, 'sprites/gooba.png'],
     [Sprite.Projectile, 'sprites/projectile.png'],
   ]
