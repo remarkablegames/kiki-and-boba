@@ -1,14 +1,21 @@
 import { Animation, Music, Scene, Sound, Sprite } from '../constants'
 
 scene(Scene.Preload, () => {
-  loadSprite(Sprite.Shellie, 'sprites/shellie.png', {
-    sliceX: 4,
-    anims: {
-      [Animation.Attack]: 1,
-      [Animation.Cooldown]: 2,
-      [Animation.Idle]: 0,
-      [Animation.Stunned]: 3,
-    },
+  const spritesheets = [
+    [Sprite.Shellie, 'sprites/shellie.png'],
+    [Sprite.Spiny, 'sprites/spiny.png'],
+  ]
+
+  spritesheets.forEach(([name, src]) => {
+    loadSprite(name, src, {
+      sliceX: 4,
+      anims: {
+        [Animation.Idle]: 0,
+        [Animation.Attack]: 1,
+        [Animation.Cooldown]: 2,
+        [Animation.Stunned]: 3,
+      },
+    })
   })
 
   loadSprite(Sprite.Pokey, 'sprites/pokey.png', {
@@ -31,7 +38,6 @@ scene(Scene.Preload, () => {
     [Sprite.Bubbie, 'sprites/bubbie.png'],
     [Sprite.Gooba, 'sprites/gooba.png'],
     [Sprite.Projectile, 'sprites/projectile.png'],
-    [Sprite.Spiny, 'sprites/spiny.png'],
   ]
 
   sprites.forEach(([name, src]) => {
