@@ -11,16 +11,13 @@ const State = Animation
 
 export function addEnemy(x: number, y: number, player: Player) {
   const sprites = [
-    /*
     Sprite.Bubbie,
     Sprite.Gooba,
-    */
     Sprite.Pokey,
-    /*
     Sprite.Shellie,
     Sprite.Spiny,
-    */
   ]
+
   const speed = rand(100, 300)
   const damage = rand(1, 10)
   const hp = randi(Health.Min, Health.Max)
@@ -67,12 +64,29 @@ export function addEnemy(x: number, y: number, player: Player) {
     try {
       enemy.play(State.Attack)
     } catch (error) {} // eslint-disable-line
+    if (enemy.sprite === Sprite.Pokey) {
+      const direction = player.pos.sub(enemy.pos).unit()
+      add([
+        sprite(Sprite.PokeyProjectile),
+        pos(enemy.pos),
+        move(direction, 300),
+        area(),
+        offscreen({ destroy: true }),
+        anchor('center'),
+        scale(0.2),
+      ])
+    }
   })
 
-  enemy.onStateUpdate(State.Attack, () => {
+  enemy.onStateUpdate(State.Attack, async () => {
     if (!player.exists()) {
       return
     }
+
+    if (enemy.sprite === Sprite.Pokey && Number(rand()) < 0.005) {
+      return enemy.enterState(State.Idle)
+    }
+
     const direction = player.pos.sub(enemy.pos).unit()
     enemy.move(direction.scale(enemy.speed))
   })
