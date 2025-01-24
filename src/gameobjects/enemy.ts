@@ -28,7 +28,6 @@ export function addEnemy(x: number, y: number, player: Player) {
     pos(x, y),
     anchor('center'),
     health(hp, hp),
-    opacity(1),
     area(),
     body(),
     scale(0.75),
@@ -83,7 +82,6 @@ export function addEnemy(x: number, y: number, player: Player) {
   enemy.onHurt(() => {
     enemy.enterState(State.Stunned)
     enemy.play(State.Stunned)
-    enemy.opacity = enemy.hp() / enemy.maxHP()!
   })
 
   enemy.onDeath(() => {
