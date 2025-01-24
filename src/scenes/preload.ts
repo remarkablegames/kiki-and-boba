@@ -30,7 +30,7 @@ scene(Scene.Preload, () => {
     [Sprite.Bean, 'sprites/bean.png'],
     [Sprite.Bubbie, 'sprites/bubbie.png'],
     [Sprite.Gooba, 'sprites/gooba.png'],
-    [Sprite.PokeyProjectile, 'sprites/pokey-projectile.png'],
+    [Sprite.Projectile, 'sprites/projectile.png'],
     [Sprite.Spiny, 'sprites/spiny.png'],
   ]
 

@@ -1,5 +1,6 @@
 import { Animation, Sound, Sprite, Tag } from '../constants'
 import type { Player } from '../types'
+import { addProjectile } from './projectile'
 import { incrementScore } from './score'
 
 enum Health {
@@ -65,16 +66,7 @@ export function addEnemy(x: number, y: number, player: Player) {
       enemy.play(State.Attack)
     } catch (error) {} // eslint-disable-line
     if (enemy.sprite === Sprite.Pokey) {
-      const direction = player.pos.sub(enemy.pos).unit()
-      add([
-        sprite(Sprite.PokeyProjectile),
-        pos(enemy.pos),
-        move(direction, 300),
-        area(),
-        offscreen({ destroy: true }),
-        anchor('center'),
-        scale(0.2),
-      ])
+      addProjectile(enemy, player)
     }
   })
 

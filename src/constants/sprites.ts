@@ -3,7 +3,7 @@ export enum Sprite {
   Bubbie = 'Bubbie',
   Gooba = 'Gooba',
   Pokey = 'Pokey',
-  PokeyProjectile = 'PokeyProjectile',
+  Projectile = 'Projectile',
   Shellie = 'Shellie',
   Spiny = 'Spiny',
 }
