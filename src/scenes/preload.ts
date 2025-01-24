@@ -2,7 +2,7 @@ import { Animation, Music, Scene, Sound, Sprite } from '../constants'
 
 scene(Scene.Preload, () => {
   loadSprite(Sprite.Shellie, 'sprites/shellie.png', {
-    sliceX: Object.keys(Animation).length,
+    sliceX: 4,
     anims: {
       [Animation.Attack]: 1,
       [Animation.Cooldown]: 2,
@@ -11,11 +11,25 @@ scene(Scene.Preload, () => {
     },
   })
 
+  loadSprite(Sprite.Pokey, 'sprites/pokey.png', {
+    sliceX: 5,
+    anims: {
+      [Animation.Attack]: {
+        from: 0,
+        to: 1,
+        loop: true,
+        speed: 1,
+      },
+      [Animation.Cooldown]: 2,
+      [Animation.Idle]: 3,
+      [Animation.Stunned]: 4,
+    },
+  })
+
   const sprites = [
     [Sprite.Bean, 'sprites/bean.png'],
     [Sprite.Bubbie, 'sprites/bubbie.png'],
     [Sprite.Gooba, 'sprites/gooba.png'],
-    [Sprite.Pokey, 'sprites/pokey.png'],
     [Sprite.Spiny, 'sprites/spiny.png'],
   ]
 

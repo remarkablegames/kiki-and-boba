@@ -11,11 +11,15 @@ const State = Animation
 
 export function addEnemy(x: number, y: number, player: Player) {
   const sprites = [
+    /*
     Sprite.Bubbie,
     Sprite.Gooba,
+    */
     Sprite.Pokey,
+    /*
     Sprite.Shellie,
     Sprite.Spiny,
+    */
   ]
   const speed = rand(100, 300)
   const damage = rand(1, 10)
@@ -59,13 +63,16 @@ export function addEnemy(x: number, y: number, player: Player) {
     enemy.enterState(State.Attack)
   })
 
+  enemy.onStateEnter(State.Attack, async () => {
+    try {
+      enemy.play(State.Attack)
+    } catch (error) {} // eslint-disable-line
+  })
+
   enemy.onStateUpdate(State.Attack, () => {
     if (!player.exists()) {
       return
     }
-    try {
-      enemy.play(State.Attack)
-    } catch (error) {} // eslint-disable-line
     const direction = player.pos.sub(enemy.pos).unit()
     enemy.move(direction.scale(enemy.speed))
   })
