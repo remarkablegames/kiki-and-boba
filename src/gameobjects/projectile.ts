@@ -6,14 +6,17 @@ const SPEED = 500
 const DAMAGE = 5
 
 export function addProjectile(enemy: Enemy, player: Player) {
+  const direction = getDirection(enemy.screenPos()!, player.screenPos()!)
+
   const projectile = add([
     sprite(Sprite.Projectile),
     pos(enemy.pos),
-    move(getDirection(enemy.screenPos()!, player.screenPos()!), SPEED),
+    move(direction, SPEED),
     area(),
     offscreen({ destroy: true }),
     anchor('center'),
     scale(0.2),
+    rotate(direction.angle()),
     Tag.Projectile,
   ])
 
