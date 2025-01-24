@@ -1,4 +1,5 @@
 import { Sound, Tag } from '../constants'
+import { getDirection } from '../helpers'
 import type { Enemy, Player } from '../types'
 
 const BULLET_SPEED = 200
@@ -7,7 +8,7 @@ const BULLET_DAMAGE = 20
 export function addBullet(player: Player) {
   const bullet = add([
     pos(player.pos),
-    move(getBulletDir(player), BULLET_SPEED),
+    move(getDirection(player.screenPos()!, mousePos()), BULLET_SPEED),
     circle(30),
     area(),
     offscreen({ destroy: true }),
@@ -24,15 +25,4 @@ export function addBullet(player: Player) {
   })
 
   return bullet
-}
-
-function getBulletDir(player: Player) {
-  const mousePosition = mousePos()
-  const playerPosition = player.screenPos()
-  const angle = Math.atan2(
-    mousePosition.y - playerPosition!.y,
-    mousePosition.x - playerPosition!.x,
-  )
-  const degrees = (angle * 180) / Math.PI
-  return degrees
 }
