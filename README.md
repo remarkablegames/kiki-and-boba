@@ -13,9 +13,13 @@ Play the game on:
 
 - [remarkablegames](https://remarkablegames.org/kiki-and-boba)
 
-## Prerequisites
+## How to Play
 
-- [nvm](https://github.com/nvm-sh/nvm#readme)
+- Move with WASD or arrow keys
+- Left click to shoot bubble at enemy
+- Enemies will pop if they get hit with too many bubbles
+- Enemies in a bubble can also fall in a sinkhole
+- Avoid enemies and projectiles
 
 ## Install
 
