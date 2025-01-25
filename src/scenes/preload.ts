@@ -34,9 +34,22 @@ scene(Scene.Preload, () => {
     },
   })
 
+  loadSprite(Sprite.Gooba, 'sprites/gooba.png', {
+    sliceX: 6,
+    anims: {
+      [Animation.Idle]: 0,
+      [Animation.Move]: 5,
+      [Animation.Attack]: {
+        from: 1,
+        to: 2,
+      },
+      [Animation.Cooldown]: 3,
+      [Animation.Stunned]: 4,
+    },
+  })
+
   const sprites = [
     [Sprite.Bean, 'sprites/bean.png'],
-    [Sprite.Gooba, 'sprites/gooba.png'],
     [Sprite.Projectile, 'sprites/projectile.png'],
   ]
 
