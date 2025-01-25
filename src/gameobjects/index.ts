@@ -1,4 +1,4 @@
-export * from './bullet'
+export * from './bubble'
 export * from './enemy'
 export * from './health'
 export * from './music'

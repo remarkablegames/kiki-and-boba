@@ -1,5 +1,5 @@
-import { addBullet, addEnemy, addPlayer } from '../gameobjects'
+import { addBubble, addEnemy, addPlayer } from '../gameobjects'
 
-export type Bullet = ReturnType<typeof addBullet>
+export type Bubble = ReturnType<typeof addBubble>
 export type Enemy = ReturnType<typeof addEnemy>
 export type Player = ReturnType<typeof addPlayer>

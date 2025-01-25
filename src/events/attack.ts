@@ -1,5 +1,5 @@
 import { Sound } from '../constants'
-import { addBullet } from '../gameobjects'
+import { addBubble } from '../gameobjects'
 import type { Player } from '../types'
 
 export function addAttack(player: Player) {
@@ -9,7 +9,7 @@ export function addAttack(player: Player) {
     if (attack.canAttack()) {
       attack.update()
       play(Sound.Shoot, { detune: rand(-100, 100) })
-      addBullet(player)
+      addBubble(player)
     }
   })
 }
