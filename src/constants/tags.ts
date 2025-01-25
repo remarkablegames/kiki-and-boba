@@ -1,7 +1,7 @@
 export enum Tag {
   Bubble = 'Bubble',
+  Bubbled = 'Bubbled',
   Enemy = 'Enemy',
-  EnemyBubble = 'EnemyBubble',
   Hole = 'Hole',
   Player = 'Player',
   Projectile = 'Projectile',

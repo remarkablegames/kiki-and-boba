@@ -1,6 +1,6 @@
 import { Sound, Sprite, Tag } from '../constants'
 import { getDirection } from '../helpers'
-import type { Enemy, Player } from '../types'
+import type { Bubble, Enemy, Player } from '../types'
 
 const SPEED = 200
 const DAMAGE = 20
@@ -22,13 +22,19 @@ export function addBubble(player: Player) {
     bubble.destroy()
     const currentEnemy = enemy as Enemy
     currentEnemy.hurt(DAMAGE)
-    currentEnemy.add([
-      sprite(Sprite.BubbleGood),
-      anchor('center'),
-      scale(0.2),
-      Tag.EnemyBubble,
-    ])
-    currentEnemy.bubble = true
+
+    if (hasBubble(currentEnemy)) {
+      const childBubble = currentEnemy.get(Tag.Bubbled)[0] as Bubble
+      childBubble.scaleTo(childBubble.scale.x * 1.1)
+    } else {
+      currentEnemy.add([
+        sprite(Sprite.BubbleGood),
+        anchor('center'),
+        scale(0.2),
+        Tag.Bubbled,
+      ])
+      currentEnemy.bubble = true
+    }
   })
 
   bubble.onCollide(Tag.Projectile, () => {
@@ -37,4 +43,8 @@ export function addBubble(player: Player) {
   })
 
   return bubble
+}
+
+export function hasBubble(enemy: Enemy) {
+  return Boolean(enemy.get(Tag.Bubbled).length)
 }

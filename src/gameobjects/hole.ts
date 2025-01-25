@@ -22,7 +22,7 @@ export function addHole() {
 
   hole.onCollide(Tag.Enemy, (enemy) => {
     const currentEnemy = enemy as Enemy
-    if (currentEnemy.get(Tag.EnemyBubble).length) {
+    if (currentEnemy.bubble) {
       currentEnemy.hurt(100)
     }
   })
