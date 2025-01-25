@@ -18,8 +18,9 @@ export function addBubble(player: Player) {
   ])
 
   bubble.onCollide(Tag.Enemy, (enemy) => {
-    play(Sound.Hit)
+    play(Sound.Pop, { detune: rand(-100, 100) })
     bubble.destroy()
+
     const currentEnemy = enemy as Enemy
     currentEnemy.hurt(bubble.damage)
 
@@ -57,7 +58,7 @@ export function addBubble(player: Player) {
   })
 
   bubble.onCollide(Tag.Projectile, () => {
-    play(Sound.Hit)
+    play(Sound.Pop, { detune: rand(-100, 100) })
     bubble.destroy()
   })
 

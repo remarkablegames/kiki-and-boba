@@ -25,11 +25,11 @@ export function addPlayer(x = center().x, y = center().y) {
   })
 
   player.onCollide(Tag.Enemy, () => {
-    play(Sound.Hit)
+    play(Sound.Pop, { detune: rand(-100, 100) })
   })
 
   player.onCollide(Tag.Projectile, () => {
-    play(Sound.Hit)
+    play(Sound.Pop, { detune: rand(-100, 100) })
   })
 
   player.onDeath(() => {

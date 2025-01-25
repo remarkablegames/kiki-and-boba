@@ -21,14 +21,14 @@ export function addProjectile(enemy: Enemy, player: Player) {
   ])
 
   projectile.onCollide(Tag.Player, (player) => {
-    play(Sound.Hit)
+    play(Sound.Pop, { detune: rand(-100, 100) })
     projectile.destroy()
     const currentPlayer = player as Player
     currentPlayer.hurt(DAMAGE)
   })
 
   projectile.onCollide(Tag.Enemy, (enemy) => {
-    play(Sound.Hit)
+    play(Sound.Pop, { detune: rand(-100, 100) })
     enemy.removeAll(Tag.Bubbled)
     enemy.bubble = false
   })

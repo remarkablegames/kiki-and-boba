@@ -7,7 +7,7 @@ export function addAttack(player: Player) {
 
   onClick(() => {
     if (attack.canAttack()) {
-      play(Sound.Shoot, { detune: rand(-100, 100) })
+      play(Sound.Hit, { detune: rand(-100, 100) })
       addBubble(player)
       attack.update()
     }
