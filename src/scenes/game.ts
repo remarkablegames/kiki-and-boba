@@ -8,6 +8,8 @@ import {
   playMusic,
 } from '../gameobjects'
 
+const MINUTE = 60
+
 scene(Scene.Game, () => {
   const textbox = add([
     rect(600, 100),
@@ -28,11 +30,11 @@ scene(Scene.Game, () => {
   const player = addPlayer()
   addHealth(player)
 
-  loop(5, () => {
-    addEnemy()
-  })
+  loop(5, addEnemy, MINUTE / 5, true)
+  loop(10, addHole, MINUTE / 10, true)
 
-  loop(10, () => {
-    addHole()
+  wait(MINUTE, () => {
+    loop(2.5, addEnemy, undefined, true)
+    loop(15, addHole, undefined, true)
   })
 })
