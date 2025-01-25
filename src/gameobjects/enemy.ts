@@ -45,6 +45,10 @@ export function addEnemy() {
     { bubble: false, damage, speed },
   ])
 
+  if (enemy.sprite === Sprite.Gooba) {
+    play(Sound.Splash)
+  }
+
   addEnemyState(enemy)
 
   enemy.onCollide(Tag.Player, () => {
