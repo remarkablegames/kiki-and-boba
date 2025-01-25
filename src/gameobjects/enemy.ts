@@ -1,14 +1,25 @@
 import { Sound, Sprite, State, Tag } from '../constants'
 import { addEnemyState } from '../events'
+import { outsideCoordinates } from '../helpers'
 import { getPlayer } from './player'
 import { incrementScore } from './score'
+
+enum Damage {
+  Min = 1,
+  Max = 10,
+}
 
 enum Health {
   Min = 20,
   Max = 100,
 }
 
-export function addEnemy(x: number, y: number) {
+enum Speed {
+  Min = 100,
+  Max = 300,
+}
+
+export function addEnemy() {
   const sprites = [
     Sprite.Bubbie,
     Sprite.Gooba,
@@ -17,13 +28,13 @@ export function addEnemy(x: number, y: number) {
     Sprite.Spiny,
   ]
 
-  const speed = rand(100, 300)
-  const damage = rand(1, 10)
+  const speed = rand(Speed.Min, Speed.Max)
+  const damage = rand(Damage.Min, Damage.Max)
   const hp = randi(Health.Min, Health.Max)
 
   const enemy = add([
     sprite(sprites[randi(sprites.length)]),
-    pos(x, y),
+    pos(outsideCoordinates()),
     anchor('center'),
     health(hp, hp),
     area(),

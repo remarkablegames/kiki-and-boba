@@ -24,14 +24,18 @@ export function addPlayer(x = center().x, y = center().y) {
     setCamPos(player.worldPos()!)
   })
 
-  player.onHurt(() => {
+  player.onCollide(Tag.Enemy, () => {
     play(Sound.Hit)
+  })
 
-    if (player.hp() <= 0) {
-      stopMusic()
-      play(Sound.Whoosh)
-      go(Scene.Lose)
-    }
+  player.onCollide(Tag.Projectile, () => {
+    play(Sound.Hit)
+  })
+
+  player.onDeath(() => {
+    stopMusic()
+    play(Sound.Whoosh)
+    go(Scene.Lose)
   })
 
   return player

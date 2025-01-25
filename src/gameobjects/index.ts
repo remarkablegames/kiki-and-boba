@@ -1,6 +1,7 @@
 export * from './bubble'
 export * from './enemy'
 export * from './health'
+export * from './hole'
 export * from './music'
 export * from './player'
 export * from './projectile'

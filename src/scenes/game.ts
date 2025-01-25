@@ -2,11 +2,11 @@ import { Scene } from '../constants'
 import {
   addEnemy,
   addHealth,
+  addHole,
   addPlayer,
   addScore,
   playMusic,
 } from '../gameobjects'
-import { outsideCoordinates } from '../helpers'
 
 scene(Scene.Game, () => {
   const textbox = add([
@@ -29,7 +29,10 @@ scene(Scene.Game, () => {
   addHealth(player)
 
   loop(5, () => {
-    const { x, y } = outsideCoordinates(player.pos.x, player.pos.y)
-    addEnemy(x, y)
+    addEnemy()
+  })
+
+  loop(10, () => {
+    addHole()
   })
 })
