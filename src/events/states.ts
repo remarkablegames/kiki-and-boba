@@ -42,7 +42,7 @@ export function addEnemyState(enemy: Enemy) {
     enemy.enterState(State.Move)
   })
 
-  enemy.onStateUpdate(State.Move, async () => {
+  enemy.onStateUpdate(State.Move, () => {
     const player = getPlayer()
 
     if (!player?.exists()) {

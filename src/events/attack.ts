@@ -3,24 +3,24 @@ import { addBubble } from '../gameobjects'
 import type { Player } from '../types'
 
 export function addAttack(player: Player) {
-  const attack = new Attack(player)
+  const attack = new Attack()
 
   onClick(() => {
     if (attack.canAttack()) {
-      attack.update()
       play(Sound.Shoot, { detune: rand(-100, 100) })
       addBubble(player)
+      attack.update()
     }
   })
 }
 
 class Attack {
-  private attackDelay = 1
-  private lastAttacked = 0
-  private player
+  private attackDelay
+  private lastAttacked
 
-  constructor(player: Player) {
-    this.player = player
+  constructor(attackDelay = 1, lastAttacked = 0) {
+    this.attackDelay = attackDelay
+    this.lastAttacked = lastAttacked
   }
 
   update() {

@@ -36,13 +36,21 @@ export function addEnemy(x: number, y: number) {
 
   addEnemyState(enemy)
 
-  enemy.onCollide(Tag.Player, async () => {
+  enemy.onCollide(Tag.Player, () => {
     if (enemy.bubble) {
       return
     }
 
     enemy.enterState(State.Attack)
     getPlayer()?.hurt(enemy.damage)
+  })
+
+  enemy.onCollideUpdate(Tag.Player, () => {
+    if (enemy.bubble) {
+      return
+    }
+
+    getPlayer()?.hurt(enemy.damage / 1000)
   })
 
   enemy.onHurt(() => {
