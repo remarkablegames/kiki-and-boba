@@ -50,7 +50,7 @@ scene(Scene.Preload, () => {
 
   const sprites = [
     [Sprite.Bean, 'sprites/bean.png'],
-    [Sprite.BubbleGood, 'sprites/bubble_good.png'],
+    [Sprite.BubbleGood, 'sprites/bubble.png'],
     [Sprite.Projectile, 'sprites/projectile.png'],
   ]
 
