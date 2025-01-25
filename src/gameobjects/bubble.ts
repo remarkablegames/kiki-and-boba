@@ -22,6 +22,8 @@ export function addBubble(player: Player) {
     bubble.destroy()
     const currentEnemy = enemy as Enemy
     currentEnemy.hurt(DAMAGE)
+    currentEnemy.add([sprite(Sprite.BubbleGood), anchor('center'), scale(0.2)])
+    currentEnemy.bubble = true
   })
 
   return bubble

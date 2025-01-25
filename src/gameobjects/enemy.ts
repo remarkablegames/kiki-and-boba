@@ -31,12 +31,16 @@ export function addEnemy(x: number, y: number) {
     scale(0.75),
     state(State.Move, Object.values(State)),
     Tag.Enemy,
-    { damage, speed },
+    { bubble: false, damage, speed },
   ])
 
   addEnemyState(enemy)
 
   enemy.onCollide(Tag.Player, async () => {
+    if (enemy.bubble) {
+      return
+    }
+
     enemy.enterState(State.Attack)
     getPlayer()?.hurt(enemy.damage)
   })
