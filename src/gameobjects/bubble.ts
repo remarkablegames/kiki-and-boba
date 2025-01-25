@@ -25,7 +25,7 @@ export function addBubble(player: Player) {
 
     if (hasBubble(currentEnemy)) {
       const childBubble = currentEnemy.get(Tag.Bubbled)[0] as Bubble
-      childBubble.scaleTo(childBubble.scale.x * 1.1)
+      childBubble.scaleBy(1.1)
     } else {
       currentEnemy.add([
         sprite(Sprite.BubbleGood),
@@ -34,6 +34,24 @@ export function addBubble(player: Player) {
         Tag.Bubbled,
       ])
       currentEnemy.bubble = true
+    }
+  })
+
+  bubble.onCollide(Tag.Bubble, (otherBubble) => {
+    let currentBubble: Bubble
+
+    if (bubble.scale.x >= (otherBubble as Bubble).scale.x) {
+      currentBubble = bubble
+      otherBubble.destroy()
+    } else {
+      currentBubble = otherBubble as Bubble
+      bubble.destroy()
+    }
+
+    if (currentBubble.scale.x > 0.2) {
+      currentBubble.destroy()
+    } else {
+      currentBubble.scaleBy(1.1)
     }
   })
 
