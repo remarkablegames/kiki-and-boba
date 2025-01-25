@@ -49,6 +49,8 @@ export function addEnemy() {
 
   enemy.onCollide(Tag.Player, () => {
     if (enemy.bubble) {
+      enemy.get(Tag.Bubbled)[0].destroy()
+      enemy.bubble = false
       return
     }
 
