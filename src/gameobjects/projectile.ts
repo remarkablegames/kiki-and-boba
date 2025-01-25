@@ -27,5 +27,10 @@ export function addProjectile(enemy: Enemy, player: Player) {
     currentPlayer.hurt(DAMAGE)
   })
 
+  projectile.onCollide(Tag.Enemy, (enemy) => {
+    play(Sound.Hit)
+    enemy.removeAll(Tag.EnemyBubble)
+  })
+
   return projectile
 }
