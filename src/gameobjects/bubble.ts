@@ -30,7 +30,7 @@ export function addBubble(player: Player) {
       currentEnemy.add([
         sprite(Sprite.BubbleGood),
         anchor('center'),
-        scale(0.2),
+        scale(0.18),
         Tag.Bubbled,
       ])
       currentEnemy.bubble = true
