@@ -59,6 +59,6 @@ export function addEnemyState(enemy: Enemy) {
     }
 
     const direction = player.pos.sub(enemy.pos).unit()
-    enemy.move(direction.scale(enemy.speed))
+    enemy.move(direction.scale(enemy.speed - enemy.bubble * 20))
   })
 }

@@ -42,7 +42,7 @@ export function addEnemy() {
     scale(0.75),
     state(State.Move, Object.values(State)),
     Tag.Enemy,
-    { bubble: false, damage, speed },
+    { bubble: 0, damage, speed },
   ])
 
   if (enemy.sprite === Sprite.Gooba) {
@@ -54,7 +54,7 @@ export function addEnemy() {
   enemy.onCollide(Tag.Player, () => {
     if (enemy.bubble) {
       getChildBubble(enemy)?.destroy()
-      enemy.bubble = false
+      enemy.bubble = 0
       return
     }
 

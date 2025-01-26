@@ -26,6 +26,7 @@ export function addBadBubble(enemy: Enemy) {
 
     const currentPlayer = player as Player
     currentPlayer.hurt(badBubble.damage)
+    currentPlayer.bubble += 1
     const childBubble = getChildBubble(currentPlayer)
 
     if (childBubble) {
@@ -37,7 +38,6 @@ export function addBadBubble(enemy: Enemy) {
         scale(0.18),
         Tag.ChildBubble,
       ])
-      currentPlayer.bubble = true
     }
   })
 

@@ -15,7 +15,7 @@ export function addPlayer(x = center().x, y = center().y) {
     scale(0.75),
     health(HEALTH, HEALTH),
     Tag.Player,
-    { bubble: false, speed: 320 },
+    { bubble: 0, speed: 320 },
   ])
 
   addCursorKeys(player)
@@ -63,7 +63,7 @@ function onHit(player: Player) {
 
     if (player.bubble) {
       getChildBubble(player)?.destroy()
-      player.bubble = false
+      player.bubble = 0
     }
 
     if (player.hp() < player.maxHP()! / 4) {
