@@ -61,15 +61,7 @@ scene(Scene.Preload, () => {
   ]
 
   sprites.forEach(([name, src]) => {
-    loadSprite(name, src, {
-      anims: {
-        [Animation.Idle]: 0,
-        [Animation.Move]: 0,
-        [Animation.Attack]: 0,
-        [Animation.Cooldown]: 0,
-        [Animation.Stunned]: 0,
-      },
-    })
+    loadSprite(name, src)
   })
 
   loadSprite(Sprite.Kiki, 'sprites/kiki.png', {

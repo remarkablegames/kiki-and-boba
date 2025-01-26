@@ -7,7 +7,7 @@
 ![release](https://img.shields.io/github/v/release/remarkablegames/kiki-and-boba)
 [![build](https://github.com/remarkablegames/kiki-and-boba/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/kiki-and-boba/actions/workflows/build.yml)
 
-💦 Capture the enemies with your bubbles!
+💦 Shoot your bubbles at enemies!
 
 Play the game on:
 
