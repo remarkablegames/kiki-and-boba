@@ -6,7 +6,7 @@ const SPEED = 200
 
 export function addBubble(player: Player) {
   const bubble = add([
-    sprite(Sprite.BubbleGood),
+    sprite(Sprite.Bubble),
     pos(player.pos),
     move(getDirection(player.screenPos()!, mousePos()), SPEED),
     area({ scale: 0.7 }),
@@ -29,7 +29,7 @@ export function addBubble(player: Player) {
       childBubble.scaleBy(1.1)
     } else {
       currentEnemy.add([
-        sprite(Sprite.BubbleGood),
+        sprite(Sprite.Bubble),
         anchor('center'),
         scale(0.18),
         Tag.Bubbled,

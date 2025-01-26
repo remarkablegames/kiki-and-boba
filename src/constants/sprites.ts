@@ -1,6 +1,6 @@
 export enum Sprite {
   Bubbie = 'Bubbie',
-  BubbleGood = 'BubbleGood',
+  Bubble = 'Bubble',
   Gooba = 'Gooba',
   Kiki = 'Kiki',
   Pokey = 'Pokey',
