@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.2](https://github.com/remarkablegames/bubble-gun/compare/v1.0.1...v1.0.2) (2025-01-26)
+
+### Miscellaneous Chores
+
+- release 1.0.2 ([b24ed1e](https://github.com/remarkablegames/bubble-gun/commit/b24ed1e9bc8b5c32029351e6e1d53b5a23c9be28))
+
 ## [1.0.1](https://github.com/remarkablegames/bubble-gun/compare/v1.0.0...v1.0.1) (2025-01-26)
 
 ### Miscellaneous Chores
