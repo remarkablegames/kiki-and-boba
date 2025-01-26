@@ -9,7 +9,7 @@
 
 💦 🔫 Shoot bubbles at enemies!
 
-This game was made for [Global Game Jam 2025](https://globalgamejam.org/games/2025/kiki-and-boba-4), in which the theme was `Bubble`. The game was bootstrapped from [`kaplay-template`](https://github.com/remarkablegames/kaplay-template).
+This game was made for [Global Game Jam 2025](https://globalgamejam.org/games/2025/kiki-and-boba-4), in which the theme was `Bubble`. The game was bootstrapped from [`kaplay-template`](https://github.com/remarkablegames/kaplay-template). Read the [blog post](https://remarkablegames.org/posts/bubble-gun/).
 
 Play the game on:
 
