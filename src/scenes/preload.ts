@@ -71,6 +71,7 @@ scene(Scene.Preload, () => {
     [Sound.Hit, 'sounds/hit.mp3'],
     [Sound.Pop, 'sounds/pop.mp3'],
     [Sound.Shoot, 'sounds/shoot.mp3'],
+    [Sound.Sneeze, 'sounds/sneeze.mp3'],
     [Sound.Splash, 'sounds/splash.mp3'],
     [Sound.Whoosh, 'sounds/whoosh.mp3'],
   ]

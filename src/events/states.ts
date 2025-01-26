@@ -1,4 +1,4 @@
-import { Animation, Sprite, State } from '../constants'
+import { Animation, Sound, Sprite, State } from '../constants'
 import { addProjectile, getPlayer } from '../gameobjects'
 import type { Enemy } from '../types'
 
@@ -23,6 +23,7 @@ export function addEnemyState(enemy: Enemy) {
     enemy.play(Animation.Attack)
 
     if (enemy.sprite === Sprite.Pokey) {
+      play(Sound.Sneeze)
       addProjectile(enemy, player)
     }
 

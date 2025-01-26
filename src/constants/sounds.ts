@@ -3,6 +3,7 @@ export enum Sound {
   Hit = 'Hit',
   Pop = 'Pop',
   Shoot = 'Shoot',
+  Sneeze = 'Sneeze',
   Splash = 'Splash',
   Whoosh = 'Whoosh',
 }
