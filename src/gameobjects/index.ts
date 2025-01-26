@@ -1,4 +1,5 @@
 export * from './bubble'
+export * from './button'
 export * from './enemy'
 export * from './health'
 export * from './hole'
