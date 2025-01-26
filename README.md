@@ -7,7 +7,9 @@
 ![release](https://img.shields.io/github/v/release/remarkablegames/kiki-and-boba)
 [![build](https://github.com/remarkablegames/kiki-and-boba/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/kiki-and-boba/actions/workflows/build.yml)
 
-💦 Shoot your bubbles at enemies!
+💦 Shoot bubbles at enemies!
+
+This game was made for [Global Game Jam 2025](https://globalgamejam.org/games/2025/kiki-and-boba-4), in which the theme was `Bubble`. The game was bootstrapped from [`kaplay-template`](https://github.com/remarkablegames/kaplay-template).
 
 Play the game on:
 
@@ -16,10 +18,15 @@ Play the game on:
 ## How to Play
 
 - Move with WASD or arrow keys
-- Left click to shoot bubble at enemy
+- Left click to shoot a bubble
 - Enemies will pop if they get hit with too many bubbles
-- Enemies in a bubble can also fall in a sinkhole
+- Enemies in a bubble can fall in a sinkhole
 - Avoid enemies and projectiles
+
+## Credits
+
+- KitB@sh - Artist, Composer ([SoundCloud](https://soundcloud.com/k1tb4sh), [YouTube](https://www.youtube.com/@kitbash52))
+- remarkablemark - Programmer ([GitHub](https://github.com/remarkablemark))
 
 ## Install
 
