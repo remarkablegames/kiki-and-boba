@@ -1,4 +1,5 @@
 export * from './animations'
+export * from './layer'
 export * from './music'
 export * from './scenes'
 export * from './sounds'

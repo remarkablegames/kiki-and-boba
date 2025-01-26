@@ -1,4 +1,5 @@
-type Score = ReturnType<typeof addScore>
+import { Layer } from '../constants'
+import type { Score } from '../types'
 
 let score: Score
 
@@ -8,8 +9,8 @@ export function addScore() {
     pos(50, 50),
     anchor('center'),
     color(255, 255, 255),
-    layer('ui'),
     fixed(),
+    z(Layer.Foreground),
   ])
 
   const score = textbox.add([

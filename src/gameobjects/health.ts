@@ -1,3 +1,4 @@
+import { Layer } from '../constants'
 import type { Player } from '../types'
 
 const WIDTH = 300
@@ -9,6 +10,7 @@ export function addHealth(player: Player) {
     pos(30, height() - 60),
     color(0, 0, 0),
     fixed(),
+    z(Layer.Foreground),
   ])
 
   const health = background.add([
