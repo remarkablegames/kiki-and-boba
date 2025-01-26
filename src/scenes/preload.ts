@@ -1,5 +1,6 @@
 import {
   Animation,
+  Avatar,
   Expression,
   Music,
   Scene,
@@ -75,6 +76,15 @@ scene(Scene.Preload, () => {
       [Expression.Hit]: 3,
       [Expression.Pissed]: 4,
       [Expression.Dead]: 5,
+    },
+  })
+
+  loadSprite(Sprite.Avatar, 'sprites/avatar.png', {
+    sliceX: 3,
+    anims: {
+      [Avatar.Normal]: 0,
+      [Avatar.Hit]: 1,
+      [Avatar.Hurt]: 2,
     },
   })
 

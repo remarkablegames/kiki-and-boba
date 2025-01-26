@@ -1,3 +1,4 @@
+export * from './avatar'
 export * from './badbubble'
 export * from './bubble'
 export * from './button'

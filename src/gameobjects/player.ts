@@ -1,6 +1,6 @@
-import { Expression, Scene, Sound, Sprite, Tag } from '../constants'
+import { Avatar, Expression, Scene, Sound, Sprite, Tag } from '../constants'
 import { addAttack, addCursorKeys } from '../events'
-import { getChildBubble, stopMusic } from '../gameobjects'
+import { getAvatar, getChildBubble, stopMusic } from '../gameobjects'
 import { gameState } from '../helpers'
 import type { Player } from '../types'
 
@@ -32,6 +32,8 @@ export function addPlayer(x = center().x, y = center().y) {
   player.onCollide(Tag.Projectile, onHit(player))
 
   player.onDeath(() => {
+    getAvatar().play(Avatar.Hurt)
+
     const deadPlayer = add([
       sprite(Sprite.Kiki),
       pos(player.pos),
@@ -71,14 +73,21 @@ function onHit(player: Player) {
       player.bubble = 0
     }
 
+    const avatar = getAvatar()
+
     if (player.hp() < player.maxHP()! / 4) {
       player.play(Expression.Pissed)
+      avatar.play(Avatar.Hurt)
     } else {
       player.play(Expression.Hit)
+      avatar.play(Avatar.Hit)
     }
 
     wait(1, () => {
       player.play(Expression.Normal)
+      if (player.exists()) {
+        avatar.play(Avatar.Normal)
+      }
     })
   }
 }

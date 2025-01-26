@@ -1,4 +1,5 @@
 export enum Sprite {
+  Avatar = 'Avatar',
   BadBubble = 'BadBubble',
   Bubbie = 'Bubbie',
   Bubble = 'Bubble',

@@ -1,5 +1,6 @@
 import { Scene } from '../constants'
 import {
+  addAvatar,
   addDrain,
   addEnemy,
   addHealth,
@@ -30,6 +31,7 @@ scene(Scene.Game, () => {
 
   const player = addPlayer()
   addHealth(player)
+  addAvatar()
 
   levels.forEach((level) => {
     wait(level.start, () => {
