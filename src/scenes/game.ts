@@ -1,4 +1,4 @@
-import { Scene } from '../constants'
+import { Scene, Time } from '../constants'
 import {
   addEnemy,
   addHealth,
@@ -7,8 +7,6 @@ import {
   addScore,
   playMusic,
 } from '../gameobjects'
-
-const MINUTE = 60
 
 scene(Scene.Game, () => {
   const textbox = add([
@@ -30,10 +28,10 @@ scene(Scene.Game, () => {
   const player = addPlayer()
   addHealth(player)
 
-  loop(5, addEnemy, MINUTE / 5, true)
-  loop(10, addHole, MINUTE / 10, true)
+  loop(5, addEnemy, Time.Minute / 5, true)
+  loop(10, addHole, Time.Minute / 10, true)
 
-  wait(MINUTE, () => {
+  wait(Time.Minute, () => {
     loop(2.5, addEnemy, undefined, true)
     loop(15, addHole, undefined, true)
   })

@@ -23,9 +23,9 @@ export function addEnemy() {
   const sprites = [
     Sprite.Bubbie,
     Sprite.Gooba,
-    Sprite.Pokey,
     Sprite.Shellie,
     Sprite.Spiny,
+    Sprite.Pokey,
   ]
 
   const speed = rand(Speed.Min, Speed.Max)
