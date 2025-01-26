@@ -1,6 +1,8 @@
+import type { GameObj } from 'kaplay'
+
 import { Sound, Sprite, Tag } from '../constants'
 import { getDirection } from '../helpers'
-import type { Bubble, Enemy, Player } from '../types'
+import type { Bubble, ChildBubble, Enemy, Player } from '../types'
 
 const SPEED = 200
 
@@ -23,16 +25,16 @@ export function addBubble(player: Player) {
 
     const currentEnemy = enemy as Enemy
     currentEnemy.hurt(bubble.damage)
+    const childBubble = getChildBubble(currentEnemy)
 
-    if (hasBubble(currentEnemy)) {
-      const childBubble = currentEnemy.get(Tag.Bubbled)[0] as Bubble
+    if (childBubble) {
       childBubble.scaleBy(1.1)
     } else {
       currentEnemy.add([
         sprite(Sprite.Bubble),
         anchor('center'),
         scale(0.18),
-        Tag.Bubbled,
+        Tag.ChildBubble,
       ])
       currentEnemy.bubble = true
     }
@@ -65,6 +67,6 @@ export function addBubble(player: Player) {
   return bubble
 }
 
-export function hasBubble(enemy: Enemy) {
-  return Boolean(enemy.get(Tag.Bubbled).length)
+export function getChildBubble(gameobject: GameObj) {
+  return gameobject.get(Tag.ChildBubble)[0] as ChildBubble | undefined
 }

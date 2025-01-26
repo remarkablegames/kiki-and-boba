@@ -1,12 +1,14 @@
 import { Sound, Sprite, Tag } from '../constants'
 import { getDirection, multiplier } from '../helpers'
 import type { Enemy, Player } from '../types'
+import { getPlayer } from './player'
 
 const SPEED = 500
 const DAMAGE = 5
 
-export function addProjectile(enemy: Enemy, player: Player) {
-  const direction = getDirection(enemy.screenPos()!, player.screenPos()!)
+export function addProjectile(enemy: Enemy) {
+  play(Sound.Sneeze, { detune: rand(-100, 100) })
+  const direction = getDirection(enemy.screenPos()!, getPlayer()!.screenPos()!)
 
   const projectile = add([
     sprite(Sprite.Projectile),
@@ -29,7 +31,7 @@ export function addProjectile(enemy: Enemy, player: Player) {
 
   projectile.onCollide(Tag.Enemy, (enemy) => {
     play(Sound.Pop, { detune: rand(-100, 100) })
-    enemy.removeAll(Tag.Bubbled)
+    enemy.removeAll(Tag.ChildBubble)
     enemy.bubble = false
   })
 

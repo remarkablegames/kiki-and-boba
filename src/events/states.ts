@@ -1,5 +1,5 @@
-import { Animation, Sound, Sprite, State } from '../constants'
-import { addProjectile, getPlayer } from '../gameobjects'
+import { Animation, Sprite, State } from '../constants'
+import { addBadBubble, addProjectile, getPlayer } from '../gameobjects'
 import type { Enemy } from '../types'
 
 export function addEnemyState(enemy: Enemy) {
@@ -22,9 +22,14 @@ export function addEnemyState(enemy: Enemy) {
 
     enemy.play(Animation.Attack)
 
-    if (enemy.sprite === Sprite.Pokey) {
-      play(Sound.Sneeze)
-      addProjectile(enemy, player)
+    switch (enemy.sprite) {
+      case Sprite.Bubbie:
+        addBadBubble(enemy)
+        break
+
+      case Sprite.Pokey:
+        addProjectile(enemy)
+        break
     }
 
     await wait(0.2)
@@ -50,7 +55,10 @@ export function addEnemyState(enemy: Enemy) {
       return
     }
 
-    if (enemy.sprite === Sprite.Pokey && Number(rand()) < 0.005) {
+    if (
+      [Sprite.Bubbie, Sprite.Pokey].includes(enemy.sprite as Sprite) &&
+      Number(rand()) < 0.005
+    ) {
       return enemy.enterState(State.Attack)
     }
 

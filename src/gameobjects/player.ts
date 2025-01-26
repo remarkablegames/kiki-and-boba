@@ -1,6 +1,6 @@
 import { Expression, Scene, Sound, Sprite, Tag } from '../constants'
 import { addAttack, addCursorKeys } from '../events'
-import { stopMusic } from '../gameobjects'
+import { getChildBubble, stopMusic } from '../gameobjects'
 import type { Player } from '../types'
 
 const HEALTH = 100
@@ -15,6 +15,7 @@ export function addPlayer(x = center().x, y = center().y) {
     scale(0.75),
     health(HEALTH, HEALTH),
     Tag.Player,
+    { bubble: false },
   ])
 
   addCursorKeys(player)
@@ -59,6 +60,11 @@ export function getPlayer() {
 function onHit(player: Player) {
   return () => {
     play(Sound.Hit, { detune: rand(-100, 100) })
+
+    if (player.bubble) {
+      getChildBubble(player)?.destroy()
+      player.bubble = false
+    }
 
     if (player.hp() < player.maxHP()! / 4) {
       player.play(Expression.Pissed)

@@ -1,7 +1,7 @@
 import { Sound, Sprite, State, Tag } from '../constants'
 import { addEnemyState } from '../events'
 import { multiplier, outsideCoordinates } from '../helpers'
-import { getPlayer } from './player'
+import { getChildBubble, getPlayer } from '.'
 import { incrementScore } from './score'
 
 enum Damage {
@@ -53,7 +53,7 @@ export function addEnemy() {
 
   enemy.onCollide(Tag.Player, () => {
     if (enemy.bubble) {
-      enemy.get(Tag.Bubbled)[0].destroy()
+      getChildBubble(enemy)?.destroy()
       enemy.bubble = false
       return
     }
