@@ -3,11 +3,11 @@ import { addButton } from '../gameobjects'
 
 scene(Scene.Title, () => {
   const { x, y } = center()
-  const margin = 100
+  const buttonHeight = 80
 
   const textbox = add([
     rect(400, 100),
-    pos(x, y - margin),
+    pos(x, y - buttonHeight * 2),
     anchor('center'),
     color(255, 255, 255),
   ])
@@ -20,14 +20,27 @@ scene(Scene.Title, () => {
 
   addButton({
     width: 220,
-    height: 80,
+    height: buttonHeight,
     radius: 8,
     x,
-    y: y + margin,
+    y: y + buttonHeight,
     text: 'Play',
     onClick() {
       play(Sound.Hit)
       go(Scene.Game)
+    },
+  })
+
+  addButton({
+    width: 220,
+    height: buttonHeight,
+    radius: 8,
+    x,
+    y: y + buttonHeight * 2 + 20,
+    text: 'Tutorial',
+    onClick() {
+      play(Sound.Hit)
+      go(Scene.Tutorial)
     },
   })
 })

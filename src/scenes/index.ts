@@ -2,6 +2,7 @@ import './game'
 import './lose'
 import './preload'
 import './title'
+import './tutorial'
 
 import { Scene } from '../constants'
 

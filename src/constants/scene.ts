@@ -3,4 +3,5 @@ export enum Scene {
   Lose = 'Lose',
   Preload = 'Preload',
   Title = 'Title',
+  Tutorial = 'Tutorial',
 }
