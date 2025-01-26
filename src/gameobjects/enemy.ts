@@ -1,6 +1,6 @@
 import { Sound, Sprite, State, Tag } from '../constants'
 import { addEnemyState } from '../events'
-import { outsideCoordinates } from '../helpers'
+import { multiplier, outsideCoordinates } from '../helpers'
 import { getPlayer } from './player'
 import { incrementScore } from './score'
 
@@ -28,9 +28,9 @@ export function addEnemy() {
     Sprite.Pokey,
   ]
 
-  const speed = rand(Speed.Min, Speed.Max)
-  const damage = rand(Damage.Min, Damage.Max)
-  const hp = randi(Health.Min, Health.Max)
+  const speed = rand(Speed.Min, Speed.Max) * multiplier.value
+  const damage = rand(Damage.Min, Damage.Max) * multiplier.value
+  const hp = randi(Health.Min, Health.Max) * multiplier.value
 
   const enemy = add([
     sprite(sprites[randi(sprites.length)]),

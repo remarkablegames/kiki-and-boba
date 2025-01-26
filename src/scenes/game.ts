@@ -7,8 +7,11 @@ import {
   addScore,
   playMusic,
 } from '../gameobjects'
+import { multiplier } from '../helpers'
 
 scene(Scene.Game, () => {
+  multiplier.reset()
+
   const textbox = add([
     rect(600, 100),
     pos(center().x, 80),
@@ -32,6 +35,7 @@ scene(Scene.Game, () => {
   loop(10, addHole, Time.Minute / 10, true)
 
   wait(Time.Minute, () => {
+    multiplier.set(1.5)
     loop(2.5, addEnemy, undefined, true)
     loop(15, addHole, undefined, true)
   })
