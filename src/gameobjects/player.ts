@@ -7,12 +7,13 @@ const HEALTH = 100
 
 export function addPlayer(x = center().x, y = center().y) {
   const player = add([
-    sprite(Sprite.Bean),
+    sprite(Sprite.Kiki),
     pos(x, y),
     rotate(0),
     anchor('center'),
-    area(),
+    area({ scale: 0.7 }),
     body(),
+    scale(0.75),
     health(HEALTH, HEALTH),
     Tag.Player,
   ])

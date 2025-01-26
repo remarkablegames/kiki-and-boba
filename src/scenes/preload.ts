@@ -49,8 +49,8 @@ scene(Scene.Preload, () => {
   })
 
   const sprites = [
-    [Sprite.Bean, 'sprites/bean.png'],
     [Sprite.BubbleGood, 'sprites/bubble.png'],
+    [Sprite.Kiki, 'sprites/kiki.png'],
     [Sprite.Projectile, 'sprites/projectile.png'],
   ]
 
