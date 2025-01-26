@@ -1,5 +1,5 @@
 {
-  "name": "kiki-and-boba",
+  "name": "bubble-gun",
   "version": "1.0.0-alpha",
   "description": "💦 Shoot bubbles at enemies!",
   "author": "Mark <mark@remarkablemark.org>",
@@ -14,7 +14,7 @@
     "preview": "vite preview",
     "start": "vite --open"
   },
-  "homepage": "https://remarkablegames.org/kiki-and-boba/",
+  "homepage": "https://remarkablegames.org/bubble-gun/",
   "dependencies": {
     "kaplay": "3001.0.9"
   },

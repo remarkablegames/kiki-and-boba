@@ -1,19 +1,19 @@
 <p align="center">
-  <img src="https://github.com/remarkablegames/kiki-and-boba/blob/master/public/logo.png" alt="Kiki and Boba">
+  <img src="https://github.com/remarkablegames/bubble-gun/blob/master/public/logo.png" alt="Bubble Gun">
 </p>
 
-# Kiki and Boba
+# Bubble Gun
 
-![release](https://img.shields.io/github/v/release/remarkablegames/kiki-and-boba)
-[![build](https://github.com/remarkablegames/kiki-and-boba/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/kiki-and-boba/actions/workflows/build.yml)
+![release](https://img.shields.io/github/v/release/remarkablegames/bubble-gun)
+[![build](https://github.com/remarkablegames/bubble-gun/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/bubble-gun/actions/workflows/build.yml)
 
-💦 Shoot bubbles at enemies!
+💦 🔫 Shoot bubbles at enemies!
 
-This game was made for [Global Game Jam 2025](https://globalgamejam.org/games/2025/kiki-and-boba-4), in which the theme was `Bubble`. The game was bootstrapped from [`kaplay-template`](https://github.com/remarkablegames/kaplay-template).
+This game was made for [Global Game Jam 2025](https://globalgamejam.org/games/2025/bubble-gun-4), in which the theme was `Bubble`. The game was bootstrapped from [`kaplay-template`](https://github.com/remarkablegames/kaplay-template).
 
 Play the game on:
 
-- [remarkablegames](https://remarkablegames.org/kiki-and-boba)
+- [remarkablegames](https://remarkablegames.org/bubble-gun)
 
 ## How to Play
 
@@ -33,8 +33,8 @@ Play the game on:
 Clone the repository:
 
 ```sh
-git clone https://github.com/remarkablegames/kiki-and-boba.git
-cd kiki-and-boba
+git clone https://github.com/remarkablegames/bubble-gun.git
+cd bubble-gun
 ```
 
 Install the dependencies:
