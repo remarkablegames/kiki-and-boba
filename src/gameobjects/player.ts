@@ -23,6 +23,7 @@ export function addPlayer(x = center().x, y = center().y) {
 
   player.onUpdate(() => {
     setCamPos(player.worldPos()!)
+    player.flipX = !(mousePos().x > player.screenPos()!.x)
   })
 
   player.onCollide(Tag.Enemy, () => {
