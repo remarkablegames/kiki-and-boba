@@ -7,9 +7,7 @@ import {
   addScore,
   playMusic,
 } from '../gameobjects'
-import { gameState } from '../helpers'
-
-const MINUTE = 60
+import { gameState, levels } from '../helpers'
 
 scene(Scene.Game, () => {
   gameState.init()
@@ -33,35 +31,27 @@ scene(Scene.Game, () => {
   const player = addPlayer()
   addHealth(player)
 
-  // 0-1
-  wait(0, () => {
-    const level = MINUTE
-    const enemy = 5
-    const drain = 10
-    loop(enemy, addEnemy, level / enemy, true)
-    loop(drain, addDrain, level / drain, true)
-  })
+  levels.forEach((level) => {
+    wait(level.start, () => {
+      gameState.enemyDamageMultiplier = level.multiplier.damage
+      gameState.enemyHealthMultiplier = level.multiplier.health
+      gameState.enemySpeedMultiplier = level.multiplier.speed
+      gameState.enemySprites = level.enemies
+      const duration = level.end && level.end - level.start
 
-  // 1-3
-  wait(MINUTE, () => {
-    gameState.enemyDamageMultiplier = 1.5
-    gameState.enemyHealthMultiplier = 1.5
-    gameState.enemySpeedMultiplier = 1.5
+      loop(
+        level.loop.enemy,
+        addEnemy,
+        duration && duration / level.loop.enemy,
+        true,
+      )
 
-    const level = 3 * MINUTE
-    const enemy = 3
-    const drain = 15
-    loop(enemy, addEnemy, level / enemy, true)
-    loop(drain, addDrain, level / drain, true)
-  })
-
-  // 3-∞
-  wait(3 * MINUTE, () => {
-    gameState.enemyDamageMultiplier = 2
-    gameState.enemyHealthMultiplier = 2
-    gameState.enemySpeedMultiplier = 2
-
-    loop(1, addEnemy, undefined, true)
-    loop(20, addDrain, undefined, true)
+      loop(
+        level.loop.enemy,
+        addDrain,
+        duration && duration / level.loop.drain,
+        true,
+      )
+    })
   })
 })

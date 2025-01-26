@@ -5,20 +5,13 @@ import { getChildBubble, hurtPlayer } from '.'
 import { incrementScore } from './score'
 
 export function addEnemy() {
-  const sprites = [
-    Sprite.Bubbie,
-    Sprite.Gooba,
-    Sprite.Shellie,
-    Sprite.Spiny,
-    Sprite.Pokey,
-  ]
-
   const damage = randi(1, 10)
   const hp = randi(20, 100) * gameState.enemyHealthMultiplier
   const speed = randi(100, 300) * gameState.enemySpeedMultiplier
+  const { enemySprites } = gameState
 
   const enemy = add([
-    sprite(sprites[randi(sprites.length)]),
+    sprite(enemySprites[randi(enemySprites.length)]),
     pos(outsideCoordinates()),
     anchor('center'),
     health(hp, hp),

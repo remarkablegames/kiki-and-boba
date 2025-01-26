@@ -10,14 +10,7 @@ class GameState {
     this.enemyDamageMultiplier = 1
     this.enemyHealthMultiplier = 1
     this.enemySpeedMultiplier = 1
-
-    this.enemySprites = [
-      Sprite.Bubbie,
-      Sprite.Gooba,
-      Sprite.Shellie,
-      Sprite.Spiny,
-      Sprite.Pokey,
-    ]
+    this.enemySprites = []
   }
 }
 
