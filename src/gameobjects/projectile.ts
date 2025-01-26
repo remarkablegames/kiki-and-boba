@@ -1,7 +1,7 @@
 import { Sound, Sprite, Tag } from '../constants'
-import { getDirection, multiplier } from '../helpers'
-import type { Enemy, Player } from '../types'
-import { getPlayer } from './player'
+import { getDirection } from '../helpers'
+import type { Enemy } from '../types'
+import { getPlayer, hurtPlayer } from '.'
 
 const SPEED = 500
 const DAMAGE = 5
@@ -22,11 +22,10 @@ export function addProjectile(enemy: Enemy) {
     Tag.Projectile,
   ])
 
-  projectile.onCollide(Tag.Player, (player) => {
+  projectile.onCollide(Tag.Player, () => {
     play(Sound.Pop, { detune: rand(-100, 100) })
     projectile.destroy()
-    const currentPlayer = player as Player
-    currentPlayer.hurt(DAMAGE * multiplier.value)
+    hurtPlayer(DAMAGE)
   })
 
   projectile.onCollide(Tag.Enemy, (enemy) => {

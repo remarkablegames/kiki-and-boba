@@ -1,7 +1,7 @@
 import { Sound, Sprite, Tag } from '../constants'
 import { getDirection } from '../helpers'
 import type { Bubble, Enemy, Player } from '../types'
-import { getChildBubble, getPlayer } from '.'
+import { getChildBubble, getPlayer, hurtPlayer } from '.'
 
 const SPEED = 200
 
@@ -24,8 +24,8 @@ export function addBadBubble(enemy: Enemy) {
     play(Sound.Pop, { detune: rand(-100, 100) })
     badBubble.destroy()
 
+    hurtPlayer(badBubble.damage)
     const currentPlayer = player as Player
-    currentPlayer.hurt(badBubble.damage)
     currentPlayer.bubble += 1
     const childBubble = getChildBubble(currentPlayer)
 

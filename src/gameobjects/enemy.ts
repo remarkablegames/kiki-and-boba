@@ -1,7 +1,7 @@
 import { Sound, Sprite, State, Tag } from '../constants'
 import { addEnemyState } from '../events'
-import { multiplier, outsideCoordinates } from '../helpers'
-import { getChildBubble, getPlayer } from '.'
+import { gameState, outsideCoordinates } from '../helpers'
+import { getChildBubble, hurtPlayer } from '.'
 import { incrementScore } from './score'
 
 export function addEnemy() {
@@ -13,9 +13,9 @@ export function addEnemy() {
     Sprite.Pokey,
   ]
 
-  const speed = randi(100, 300) * multiplier.value
-  const damage = randi(1, 10) * multiplier.value
-  const hp = randi(20, 100) * multiplier.value
+  const damage = randi(1, 10)
+  const hp = randi(20, 100) * gameState.enemyHealthMultiplier
+  const speed = randi(100, 300) * gameState.enemySpeedMultiplier
 
   const enemy = add([
     sprite(sprites[randi(sprites.length)]),
@@ -25,7 +25,7 @@ export function addEnemy() {
     area({ scale: 0.7 }),
     body(),
     scale(0.75),
-    state(State.Move, Object.values(State)),
+    state(State.Move),
     Tag.Enemy,
     { bubble: 0, damage, speed },
   ])
@@ -42,17 +42,15 @@ export function addEnemy() {
       enemy.bubble = 0
       return
     }
-
     enemy.enterState(State.Attack)
-    getPlayer()?.hurt(enemy.damage)
+    hurtPlayer(enemy.damage)
   })
 
   enemy.onCollideUpdate(Tag.Player, () => {
     if (enemy.bubble) {
       return
     }
-
-    getPlayer()?.hurt(enemy.damage / 1000)
+    hurtPlayer(enemy.damage / 1000)
   })
 
   enemy.onHurt(() => {

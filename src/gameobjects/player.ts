@@ -1,6 +1,7 @@
 import { Expression, Scene, Sound, Sprite, Tag } from '../constants'
 import { addAttack, addCursorKeys } from '../events'
 import { getChildBubble, stopMusic } from '../gameobjects'
+import { gameState } from '../helpers'
 import type { Player } from '../types'
 
 const HEALTH = 100
@@ -55,6 +56,10 @@ export function addPlayer(x = center().x, y = center().y) {
 
 export function getPlayer() {
   return get(Tag.Player)[0] as Player | undefined
+}
+
+export function hurtPlayer(damage: number) {
+  getPlayer()?.hurt(damage * gameState.enemyDamageMultiplier)
 }
 
 function onHit(player: Player) {
