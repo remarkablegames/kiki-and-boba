@@ -1,4 +1,11 @@
-import { Animation, Music, Scene, Sound, Sprite } from '../constants'
+import {
+  Animation,
+  Expression,
+  Music,
+  Scene,
+  Sound,
+  Sprite,
+} from '../constants'
 
 scene(Scene.Preload, () => {
   const spritesheets = [
@@ -50,7 +57,6 @@ scene(Scene.Preload, () => {
 
   const sprites = [
     [Sprite.Bubble, 'sprites/bubble.png'],
-    [Sprite.Kiki, 'sprites/kiki.png'],
     [Sprite.Projectile, 'sprites/projectile.png'],
   ]
 
@@ -64,6 +70,18 @@ scene(Scene.Preload, () => {
         [Animation.Stunned]: 0,
       },
     })
+  })
+
+  loadSprite(Sprite.Kiki, 'sprites/kiki.png', {
+    sliceX: 6,
+    anims: {
+      [Expression.Normal]: 0,
+      [Expression.Smug]: 1,
+      [Expression.Sus]: 2,
+      [Expression.Hit]: 3,
+      [Expression.Pissed]: 4,
+      [Expression.Dead]: 5,
+    },
   })
 
   const sounds = [
