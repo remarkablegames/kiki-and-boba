@@ -15,7 +15,7 @@ export function addPlayer(x = center().x, y = center().y) {
     scale(0.75),
     health(HEALTH, HEALTH),
     Tag.Player,
-    { bubble: false },
+    { bubble: false, speed: 320 },
   ])
 
   addCursorKeys(player)

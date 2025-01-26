@@ -3,17 +3,16 @@ import { addBadBubble, addProjectile, getPlayer } from '../gameobjects'
 import type { Enemy } from '../types'
 
 export function addEnemyState(enemy: Enemy) {
-  enemy.onStateEnter(State.Idle, async () => {
+  enemy.onStateEnter(State.Idle, () => {
     enemy.play(Animation.Idle)
-    await wait(rand(0.3, 1))
-    enemy.enterState(State.Move)
+    wait(rand(0.3, 1), () => enemy.enterState(State.Move))
   })
 
   enemy.onStateEnter(State.Move, () => {
     enemy.play(Animation.Move)
   })
 
-  enemy.onStateEnter(State.Attack, async () => {
+  enemy.onStateEnter(State.Attack, () => {
     const player = getPlayer()
 
     if (!player?.exists()) {
@@ -32,20 +31,17 @@ export function addEnemyState(enemy: Enemy) {
         break
     }
 
-    await wait(0.2)
-    enemy.enterState(State.Cooldown)
+    wait(0.2, () => enemy.enterState(State.Cooldown))
   })
 
-  enemy.onStateEnter(State.Cooldown, async () => {
+  enemy.onStateEnter(State.Cooldown, () => {
     enemy.play(Animation.Cooldown)
-    await wait(rand(1, 3))
-    enemy.enterState(State.Move)
+    wait(rand(1, 3), () => enemy.enterState(State.Move))
   })
 
-  enemy.onStateEnter(State.Stunned, async () => {
+  enemy.onStateEnter(State.Stunned, () => {
     enemy.play(Animation.Stunned)
-    await wait(rand(0.3, 1))
-    enemy.enterState(State.Move)
+    wait(rand(0.3, 1), () => enemy.enterState(State.Move))
   })
 
   enemy.onStateUpdate(State.Move, () => {
