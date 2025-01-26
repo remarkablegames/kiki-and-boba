@@ -1,8 +1,8 @@
 import { Scene, Time } from '../constants'
 import {
+  addDrain,
   addEnemy,
   addHealth,
-  addHole,
   addPlayer,
   addScore,
   playMusic,
@@ -32,11 +32,11 @@ scene(Scene.Game, () => {
   addHealth(player)
 
   loop(5, addEnemy, Time.Minute / 5, true)
-  loop(10, addHole, Time.Minute / 10, true)
+  loop(10, addDrain, Time.Minute / 10, true)
 
   wait(Time.Minute, () => {
     multiplier.set(1.5)
     loop(2.5, addEnemy, undefined, true)
-    loop(15, addHole, undefined, true)
+    loop(15, addDrain, undefined, true)
   })
 })

@@ -7,8 +7,8 @@ enum Lifespan {
   Max = 15,
 }
 
-export function addHole() {
-  const hole = add([
+export function addDrain() {
+  const drain = add([
     circle(rand(20, 40)),
     color(0, 0, 0),
     pos(insideCoordinates()),
@@ -17,15 +17,15 @@ export function addHole() {
     anchor('center'),
     lifespan(rand(Lifespan.Min, Lifespan.Max), { fade: 0.5 }),
     opacity(1),
-    Tag.Hole,
+    Tag.Drain,
   ])
 
-  hole.onCollide(Tag.Enemy, (enemy) => {
+  drain.onCollide(Tag.Enemy, (enemy) => {
     const currentEnemy = enemy as Enemy
     if (currentEnemy.bubble) {
       currentEnemy.hurt(9999)
     }
   })
 
-  return hole
+  return drain
 }
