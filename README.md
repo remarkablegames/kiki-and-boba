@@ -14,6 +14,7 @@ This game was made for [Global Game Jam 2025](https://globalgamejam.org/games/20
 Play the game on:
 
 - [remarkablegames](https://remarkablegames.org/bubble-gun)
+- [itch.io](https://remarkablegames.itch.io/bubble-gun)
 
 ## How to Play
 
