@@ -1,4 +1,4 @@
-import { Tag } from '../constants'
+import { Sprite, Tag } from '../constants'
 import { insideCoordinates } from '../helpers'
 import type { Enemy } from '../types'
 
@@ -9,12 +9,12 @@ enum Lifespan {
 
 export function addDrain() {
   const drain = add([
-    circle(rand(20, 40)),
-    color(0, 0, 0),
+    sprite(Sprite.Drain),
     pos(insideCoordinates()),
-    area(),
+    area({ scale: 0.7 }),
     body({ isStatic: true }),
     anchor('center'),
+    scale(0.7),
     lifespan(rand(Lifespan.Min, Lifespan.Max), { fade: 0.5 }),
     opacity(1),
     Tag.Drain,
