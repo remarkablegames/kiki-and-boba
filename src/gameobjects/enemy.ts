@@ -4,21 +4,6 @@ import { multiplier, outsideCoordinates } from '../helpers'
 import { getChildBubble, getPlayer } from '.'
 import { incrementScore } from './score'
 
-enum Damage {
-  Min = 1,
-  Max = 10,
-}
-
-enum Health {
-  Min = 20,
-  Max = 100,
-}
-
-enum Speed {
-  Min = 100,
-  Max = 300,
-}
-
 export function addEnemy() {
   const sprites = [
     Sprite.Bubbie,
@@ -28,9 +13,9 @@ export function addEnemy() {
     Sprite.Pokey,
   ]
 
-  const speed = rand(Speed.Min, Speed.Max) * multiplier.value
-  const damage = rand(Damage.Min, Damage.Max) * multiplier.value
-  const hp = randi(Health.Min, Health.Max) * multiplier.value
+  const speed = randi(100, 300) * multiplier.value
+  const damage = randi(1, 10) * multiplier.value
+  const hp = randi(20, 100) * multiplier.value
 
   const enemy = add([
     sprite(sprites[randi(sprites.length)]),

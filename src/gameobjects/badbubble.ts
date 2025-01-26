@@ -65,5 +65,11 @@ export function addBadBubble(enemy: Enemy) {
     badBubble.destroy()
   })
 
+  badBubble.onCollide(Tag.Bubble, (bubble) => {
+    play(Sound.Pop, { detune: rand(-100, 100) })
+    badBubble.destroy()
+    bubble.destroy()
+  })
+
   return badBubble
 }
