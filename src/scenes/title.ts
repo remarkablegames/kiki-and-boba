@@ -13,7 +13,7 @@ scene(Scene.Title, () => {
   ])
 
   textbox.add([
-    text('Kiki & Boba', { size: 48 }),
+    text('Bubble Gun', { size: 48 }),
     anchor('center'),
     color(0, 0, 0),
   ])
