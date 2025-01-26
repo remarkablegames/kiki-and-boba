@@ -9,7 +9,7 @@ export function addBubble(player: Player) {
     sprite(Sprite.BubbleGood),
     pos(player.pos),
     move(getDirection(player.screenPos()!, mousePos()), SPEED),
-    area(),
+    area({ scale: 0.7 }),
     offscreen({ destroy: true }),
     anchor('center'),
     scale(0.1),

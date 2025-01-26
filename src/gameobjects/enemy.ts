@@ -37,7 +37,7 @@ export function addEnemy() {
     pos(outsideCoordinates()),
     anchor('center'),
     health(hp, hp),
-    area(),
+    area({ scale: 0.7 }),
     body(),
     scale(0.75),
     state(State.Move, Object.values(State)),
