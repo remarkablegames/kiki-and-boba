@@ -7,7 +7,7 @@
 ![release](https://img.shields.io/github/v/release/remarkablegames/bubble-gun)
 [![build](https://github.com/remarkablegames/bubble-gun/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/bubble-gun/actions/workflows/build.yml)
 
-💦 🔫 Shoot bubbles at enemies!
+Bubble Gun is a top-down survival game where you shoot bubbles at enemies.
 
 This game was made for [Global Game Jam 2025](https://globalgamejam.org/games/2025/kiki-and-boba-4), in which the theme was `Bubble`. The game was bootstrapped from [`kaplay-template`](https://github.com/remarkablegames/kaplay-template). Read the [blog post](https://remarkablegames.org/posts/bubble-gun/).
 
