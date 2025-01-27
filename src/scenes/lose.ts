@@ -1,22 +1,18 @@
 import { Scene, Sound } from '../constants'
-import { addButton } from '../gameobjects'
+import { addButton, addText } from '../gameobjects'
 
 scene(Scene.Lose, () => {
   const { x, y } = center()
   const margin = 100
 
-  const textbox = add([
-    rect(400, 100),
-    pos(x, y - margin),
-    anchor('center'),
-    color(255, 255, 255),
-  ])
-
-  textbox.add([
-    text('Game Over', { size: 48 }),
-    anchor('center'),
-    color(0, 0, 0),
-  ])
+  addText({
+    width: 400,
+    height: 100,
+    x,
+    y: y - margin,
+    text: 'Game Over',
+    fontSize: 48,
+  })
 
   addButton({
     width: 220,

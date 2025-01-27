@@ -6,6 +6,7 @@ import {
   addHealth,
   addPlayer,
   addScore,
+  addText,
   playMusic,
 } from '../gameobjects'
 import { gameState, levels } from '../helpers'
@@ -13,18 +14,13 @@ import { gameState, levels } from '../helpers'
 scene(Scene.Game, () => {
   gameState.init()
 
-  const textbox = add([
-    rect(600, 100),
-    pos(center().x, 80),
-    anchor('center'),
-    color(255, 255, 255),
-  ])
-
-  textbox.add([
-    text('WASD or arrow keys to move\nLeft click to shoot'),
-    anchor('center'),
-    color(0, 0, 0),
-  ])
+  addText({
+    width: 600,
+    height: 100,
+    x: center().x,
+    y: 80,
+    text: 'WASD or arrow keys to move\nLeft click to shoot',
+  })
 
   addScore()
   playMusic()

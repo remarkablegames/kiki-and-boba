@@ -1,22 +1,18 @@
 import { Scene, Sound } from '../constants'
-import { addButton } from '../gameobjects'
+import { addButton, addText } from '../gameobjects'
 
 scene(Scene.Title, () => {
   const { x, y } = center()
   const buttonHeight = 80
 
-  const textbox = add([
-    rect(400, 100),
-    pos(x, y - buttonHeight * 2),
-    anchor('center'),
-    color(255, 255, 255),
-  ])
-
-  textbox.add([
-    text('Bubble Gun', { size: 48 }),
-    anchor('center'),
-    color(0, 0, 0),
-  ])
+  addText({
+    width: 400,
+    height: 100,
+    x,
+    y: y - buttonHeight * 2,
+    text: 'Bubble Gun',
+    fontSize: 48,
+  })
 
   addButton({
     width: 220,

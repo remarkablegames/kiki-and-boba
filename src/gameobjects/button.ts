@@ -6,6 +6,7 @@ interface Props {
   y: number
   text: string
   onClick: () => void
+  fixed?: boolean
 }
 
 export function addButton(props: Props) {
@@ -18,6 +19,10 @@ export function addButton(props: Props) {
     outline(4),
     color(255, 255, 255),
   ])
+
+  if (props.fixed) {
+    button.use(fixed())
+  }
 
   button.add([text(props.text), anchor('center'), color(0, 0, 0)])
 

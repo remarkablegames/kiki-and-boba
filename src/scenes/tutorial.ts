@@ -1,24 +1,8 @@
 import { Scene, Sound } from '../constants'
-import { addPlayer } from '../gameobjects'
-import { addButton } from '../gameobjects'
+import { addButton, addPlayer, addText } from '../gameobjects'
 
 scene(Scene.Tutorial, () => {
   const { x } = center()
-
-  const textbox = add([
-    rect(600, 100),
-    pos(x, 80),
-    anchor('center'),
-    color(255, 255, 255),
-  ])
-
-  textbox.add([
-    text('WASD or arrow keys to move\nLeft click to shoot'),
-    anchor('center'),
-    color(0, 0, 0),
-  ])
-
-  addPlayer()
 
   addButton({
     width: 220,
@@ -31,5 +15,16 @@ scene(Scene.Tutorial, () => {
       play(Sound.Hit)
       go(Scene.Game)
     },
+    fixed: true,
   })
+
+  addText({
+    width: 600,
+    height: 100,
+    x,
+    y: 80,
+    text: 'WASD or arrow keys to move',
+  })
+
+  addPlayer()
 })
