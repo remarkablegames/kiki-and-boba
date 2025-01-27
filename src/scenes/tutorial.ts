@@ -20,10 +20,18 @@ scene(Scene.Tutorial, () => {
 
   addText({
     width: 600,
-    height: 100,
+    height: 60,
     x,
     y: 80,
     text: 'WASD or arrow keys to move',
+  })
+
+  addText({
+    width: 600,
+    height: 60,
+    x,
+    y: 160,
+    text: 'Left click to shoot',
   })
 
   addPlayer()
