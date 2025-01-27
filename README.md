@@ -22,7 +22,7 @@ Play the game on:
 - Move with WASD or arrow keys
 - Left click to shoot a bubble
 - Enemies will pop if they get hit with too many bubbles
-- Enemies in a bubble can fall in a sinkhole
+- Enemies in a bubble can fall down the drain
 - Avoid enemies and projectiles
 
 ## Credits
