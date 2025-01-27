@@ -1,8 +1,8 @@
 export enum Expression {
   Dead = 'Dead',
   Hit = 'Hit',
+  Hurt = 'Hurt',
   Normal = 'Normal',
-  Pissed = 'Pissed',
   Smug = 'Smug',
   Sus = 'Sus',
 }
