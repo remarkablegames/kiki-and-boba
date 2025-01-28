@@ -13,15 +13,22 @@ export function addPause() {
     }
   })
 
-  const pauseMenu = add([
+  const modal = add([
+    rect(width(), height()),
+    color(0, 0, 0),
+    opacity(0.5),
+    fixed(),
+  ])
+
+  modal.hidden = true
+
+  const pauseMenu = modal.add([
     rect(340, 300),
     color(255, 255, 255),
     outline(4),
     anchor('center'),
     pos(x, y + 700),
   ])
-
-  pauseMenu.hidden = true
 
   addButton({
     width: 200,
@@ -64,11 +71,9 @@ export function addPause() {
     )
 
     if (game.paused) {
-      pauseMenu.hidden = false
+      modal.hidden = false
     } else {
-      currentTween.onEnd(() => {
-        pauseMenu.hidden = true
-      })
+      modal.hidden = true
     }
   }
 }
