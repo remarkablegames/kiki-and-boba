@@ -58,16 +58,26 @@ export function addReward() {
   game.paused = true
 
   const modal = addModal()
-  const container = modal.add([pos(center())])
+  const { x, y } = center()
+
+  const rewardMenu = modal.add([
+    rect(500, 400),
+    color(255, 255, 255),
+    outline(4),
+    anchor('center'),
+    pos(x, y + 700),
+  ])
+
+  rewardMenu.hidden = true
 
   addText({
-    width: 550,
-    height: 80,
+    width: 0,
+    height: 0,
     x: 0,
     y: -120,
     text: 'Choose a reward',
     fontSize: 48,
-    parent: container,
+    parent: rewardMenu,
   })
 
   getRewards().forEach((reward, index) => {
@@ -84,17 +94,19 @@ export function addReward() {
         game.reward = false
         game.paused = false
       },
-      parent: container,
+      parent: rewardMenu,
     })
   })
 
   tween(
-    container.pos,
-    center(),
+    rewardMenu.pos,
+    game.paused ? center() : center().add(0, 700),
     1,
-    (position) => (container.pos = position),
+    (position) => (rewardMenu.pos = position),
     easings.easeOutElastic,
   )
+
+  rewardMenu.hidden = false
 }
 
 function getRewards(total = 2) {

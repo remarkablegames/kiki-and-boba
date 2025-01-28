@@ -13,7 +13,8 @@ export function addPause() {
     }
   })
 
-  const modal = addModal({ hidden: true })
+  const modal = addModal()
+  modal.hidden = true
 
   const pauseMenu = modal.add([
     rect(340, 300),
@@ -63,10 +64,6 @@ export function addPause() {
       easings.easeOutElastic,
     )
 
-    if (game.paused) {
-      modal.hidden = false
-    } else {
-      modal.hidden = true
-    }
+    modal.hidden = !game.paused
   }
 }
