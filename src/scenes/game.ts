@@ -5,9 +5,11 @@ import {
   addEnemy,
   addGame,
   addHealth,
+  addPause,
   addPlayer,
   addScore,
   addText,
+  game,
   playMusic,
 } from '../gameobjects'
 import { gameState, levels } from '../helpers'
@@ -26,27 +28,28 @@ scene(Scene.Game, () => {
 
   addScore()
   playMusic()
+  addPause()
 
   const player = addPlayer()
   addHealth(player)
   addAvatar()
 
   levels.forEach((level) => {
-    wait(level.start, () => {
+    game.wait(level.start, () => {
       gameState.enemy.multiplier.damage = level.multiplier.damage
       gameState.enemy.multiplier.health = level.multiplier.health
       gameState.enemy.multiplier.speed = level.multiplier.speed
       gameState.enemy.sprites = level.enemies
       const duration = level.end && level.end - level.start
 
-      loop(
+      game.loop(
         level.loop.enemy,
         addEnemy,
         duration && duration / level.loop.enemy,
         true,
       )
 
-      loop(
+      game.loop(
         level.loop.enemy,
         addDrain,
         duration && duration / level.loop.drain,

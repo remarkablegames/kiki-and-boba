@@ -1,7 +1,12 @@
+import { game } from '../gameobjects'
 import type { Player } from '../types'
 
 export function addCursorKeys(player: Player) {
   onKeyDown((key) => {
+    if (game.paused) {
+      return
+    }
+
     const speed = player.speed - player.bubble * 20
 
     switch (key) {

@@ -1,3 +1,5 @@
+import type { GameObj } from 'kaplay'
+
 interface Props {
   width: number
   height: number
@@ -7,10 +9,11 @@ interface Props {
   text: string
   onClick: () => void
   fixed?: boolean
+  parent?: GameObj
 }
 
 export function addButton(props: Props) {
-  const button = add([
+  const comps = [
     rect(props.width, props.height, { radius: props.radius }),
     pos(props.x, props.y),
     area(),
@@ -18,7 +21,15 @@ export function addButton(props: Props) {
     anchor('center'),
     outline(4),
     color(255, 255, 255),
-  ])
+  ]
+
+  let button
+
+  if (props.parent) {
+    button = props.parent.add(comps)
+  } else {
+    button = add(comps)
+  }
 
   if (props.fixed) {
     button.use(fixed())
