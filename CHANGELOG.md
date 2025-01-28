@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.0](https://github.com/remarkablegames/bubble-gun/compare/v1.0.2...v1.1.0) (2025-01-28)
+
+
+### Features
+
+* **gameobjects:** add modal to pause screen ([65fa6da](https://github.com/remarkablegames/bubble-gun/commit/65fa6da138b7d5cf7c6c9482d4ffed375364dbb8))
+* **gameobjects:** add pause menu ([28d1322](https://github.com/remarkablegames/bubble-gun/commit/28d1322b71dcaa009c25a5588a41e69cc292169f))
+* **gameobjects:** add rewards ([261db76](https://github.com/remarkablegames/bubble-gun/commit/261db76938cdacc83e436fd04314faffb043c10e))
+* **gameobjects:** add tween to reward menu ([31b4cad](https://github.com/remarkablegames/bubble-gun/commit/31b4cadebdb227bf9d94acb929ea7df5a82ac0c2))
+
 ## [1.0.2](https://github.com/remarkablegames/bubble-gun/compare/v1.0.1...v1.0.2) (2025-01-26)
 
 ### Miscellaneous Chores
