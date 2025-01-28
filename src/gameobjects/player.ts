@@ -17,7 +17,16 @@ export function addPlayer(x = center().x, y = center().y) {
     scale(0.75),
     health(HEALTH, HEALTH),
     Tag.Player,
-    { bubble: 0, speed: 320 },
+    {
+      attack: {
+        bubbleDamage: 20,
+        bubbleSpeed: 200,
+        delay: 1,
+        lastFired: -1,
+      },
+      bubble: 0,
+      speed: 320,
+    },
   ])
 
   addCursorKeys(player)

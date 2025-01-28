@@ -8,7 +8,7 @@ export function addPause() {
   const { x, y } = center()
 
   onKeyPress((key) => {
-    if (['escape', 'p'].includes(key)) {
+    if (!game.reward && ['escape', 'p'].includes(key)) {
       togglePause()
     }
   })

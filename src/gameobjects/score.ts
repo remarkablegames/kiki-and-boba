@@ -1,5 +1,7 @@
 import { Layer } from '../constants'
+import { gameState } from '../helpers'
 import type { Score } from '../types'
+import { addReward } from '.'
 
 let score: Score
 
@@ -32,6 +34,13 @@ export function getScore() {
   return score
 }
 
-export function incrementScore(amount = 1) {
-  score.text = String(parseInt(score.text, 10) + amount)
+export function incrementScore(value = 1) {
+  const newScore = parseInt(score.text, 10) + value
+  score.text = newScore.toString()
+
+  if (newScore === gameState.reward.score) {
+    gameState.reward.increment += 1
+    gameState.reward.score += gameState.reward.increment
+    addReward()
+  }
 }

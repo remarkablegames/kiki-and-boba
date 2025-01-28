@@ -1,4 +1,8 @@
-export function addModal({ hidden = false }) {
+interface Options {
+  hidden?: boolean
+}
+
+export function addModal(options?: Options) {
   const modal = add([
     rect(width(), height()),
     color(0, 0, 0),
@@ -6,7 +10,9 @@ export function addModal({ hidden = false }) {
     fixed(),
   ])
 
-  modal.hidden = hidden
+  if (typeof options?.hidden === 'boolean') {
+    modal.hidden = options.hidden
+  }
 
   return modal
 }

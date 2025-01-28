@@ -1,3 +1,5 @@
+import type { GameObj } from 'kaplay'
+
 interface Props {
   width: number
   height: number
@@ -5,15 +7,24 @@ interface Props {
   y: number
   text: string
   fontSize?: number
+  parent?: GameObj
 }
 
 export function addText(props: Props) {
-  const box = add([
+  const comps = [
     rect(props.width, props.height),
     pos(props.x, props.y),
     anchor('center'),
     color(255, 255, 255),
-  ])
+  ]
+
+  let box
+
+  if (props.parent) {
+    box = props.parent.add(comps)
+  } else {
+    box = add(comps)
+  }
 
   return box.add([
     text(props.text, { size: props.fontSize }),

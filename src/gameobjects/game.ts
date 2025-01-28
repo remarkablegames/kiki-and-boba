@@ -1,5 +1,5 @@
-export let game = add([timer()])
+export let game = add([timer(), { reward: false }])
 
 export function addGame() {
-  game = add([timer()])
+  game = add([timer(), { reward: false }])
 }

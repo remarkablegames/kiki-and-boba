@@ -5,19 +5,20 @@ import { getDirection } from '../helpers'
 import type { Bubble, ChildBubble, Enemy, Player } from '../types'
 import { game } from '.'
 
-const SPEED = 200
-
 export function addBubble(player: Player) {
   const bubble = game.add([
     sprite(Sprite.Bubble),
     pos(player.pos),
-    move(getDirection(player.screenPos()!, mousePos()), SPEED),
+    move(
+      getDirection(player.screenPos()!, mousePos()),
+      player.attack.bubbleSpeed,
+    ),
     area({ scale: 0.7 }),
     offscreen({ destroy: true }),
     anchor('center'),
     scale(0.1),
     Tag.Bubble,
-    { damage: 20 },
+    { damage: player.attack.bubbleDamage },
   ])
 
   bubble.onCollide(Tag.Enemy, (enemy) => {
