@@ -6,12 +6,12 @@ import { incrementScore } from './score'
 
 export function addEnemy() {
   const damage = randi(1, 10)
-  const hp = randi(20, 100) * gameState.enemyHealthMultiplier
-  const speed = randi(100, 300) * gameState.enemySpeedMultiplier
-  const { enemySprites } = gameState
+  const hp = randi(20, 100) * gameState.enemy.multiplier.health
+  const speed = randi(100, 300) * gameState.enemy.multiplier.speed
+  const { sprites } = gameState.enemy
 
   const enemy = add([
-    sprite(enemySprites[randi(enemySprites.length)]),
+    sprite(sprites[randi(sprites.length)]),
     pos(outsideCoordinates()),
     anchor('center'),
     health(hp, hp),

@@ -61,7 +61,7 @@ export function getPlayer() {
 }
 
 export function hurtPlayer(damage: number) {
-  getPlayer()?.hurt(damage * gameState.enemyDamageMultiplier)
+  getPlayer()?.hurt(damage * gameState.enemy.multiplier.damage)
 }
 
 function onHit(player: Player) {

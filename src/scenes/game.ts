@@ -31,10 +31,10 @@ scene(Scene.Game, () => {
 
   levels.forEach((level) => {
     wait(level.start, () => {
-      gameState.enemyDamageMultiplier = level.multiplier.damage
-      gameState.enemyHealthMultiplier = level.multiplier.health
-      gameState.enemySpeedMultiplier = level.multiplier.speed
-      gameState.enemySprites = level.enemies
+      gameState.enemy.multiplier.damage = level.multiplier.damage
+      gameState.enemy.multiplier.health = level.multiplier.health
+      gameState.enemy.multiplier.speed = level.multiplier.speed
+      gameState.enemy.sprites = level.enemies
       const duration = level.end && level.end - level.start
 
       loop(

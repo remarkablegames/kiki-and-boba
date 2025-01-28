@@ -1,16 +1,20 @@
 import { Sprite } from '../constants'
 
 class GameState {
-  enemyDamageMultiplier = 1
-  enemyHealthMultiplier = 1
-  enemySpeedMultiplier = 1
-  enemySprites: Sprite[] = []
+  enemy = {
+    multiplier: {
+      damage: 1,
+      health: 1,
+      speed: 1,
+    },
+    sprites: [] as Sprite[],
+  }
 
   init() {
-    this.enemyDamageMultiplier = 1
-    this.enemyHealthMultiplier = 1
-    this.enemySpeedMultiplier = 1
-    this.enemySprites = []
+    this.enemy.multiplier.damage = 1
+    this.enemy.multiplier.health = 1
+    this.enemy.multiplier.speed = 1
+    this.enemy.sprites = []
   }
 }
 
