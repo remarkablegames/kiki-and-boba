@@ -1,7 +1,7 @@
 import type { TweenController } from 'kaplay'
 
 import { Scene } from '../constants'
-import { addButton, game, music } from '.'
+import { addButton, addModal, game, music } from '.'
 
 export function addPause() {
   let currentTween: TweenController
@@ -13,14 +13,7 @@ export function addPause() {
     }
   })
 
-  const modal = add([
-    rect(width(), height()),
-    color(0, 0, 0),
-    opacity(0.5),
-    fixed(),
-  ])
-
-  modal.hidden = true
+  const modal = addModal({ hidden: true })
 
   const pauseMenu = modal.add([
     rect(340, 300),
