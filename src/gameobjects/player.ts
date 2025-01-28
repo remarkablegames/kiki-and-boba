@@ -3,11 +3,12 @@ import { addAttack, addCursorKeys } from '../events'
 import { getAvatar, getChildBubble, stopMusic } from '../gameobjects'
 import { gameState } from '../helpers'
 import type { Player } from '../types'
+import { game } from '.'
 
 const HEALTH = 100
 
 export function addPlayer(x = center().x, y = center().y) {
-  const player = add([
+  const player = game.add([
     sprite(Sprite.Kiki),
     pos(x, y),
     anchor('center'),
@@ -57,7 +58,7 @@ export function addPlayer(x = center().x, y = center().y) {
 }
 
 export function getPlayer() {
-  return get(Tag.Player)[0] as Player | undefined
+  return game.get(Tag.Player)[0] as Player | undefined
 }
 
 export function hurtPlayer(damage: number) {

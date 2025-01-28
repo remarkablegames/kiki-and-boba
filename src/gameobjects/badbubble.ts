@@ -2,13 +2,14 @@ import { Sound, Sprite, Tag } from '../constants'
 import { getDirection } from '../helpers'
 import type { Bubble, Enemy, Player } from '../types'
 import { getChildBubble, getPlayer, hurtPlayer } from '.'
+import { game } from '.'
 
 const SPEED = 200
 
 export function addBadBubble(enemy: Enemy) {
   play(Sound.Shoot, { detune: rand(-100, 100) })
 
-  const badBubble = add([
+  const badBubble = game.add([
     sprite(Sprite.BadBubble),
     pos(enemy.pos),
     move(getDirection(enemy.screenPos()!, getPlayer()!.screenPos()!), SPEED),

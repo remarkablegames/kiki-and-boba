@@ -3,11 +3,12 @@ import type { GameObj } from 'kaplay'
 import { Sound, Sprite, Tag } from '../constants'
 import { getDirection } from '../helpers'
 import type { Bubble, ChildBubble, Enemy, Player } from '../types'
+import { game } from '.'
 
 const SPEED = 200
 
 export function addBubble(player: Player) {
-  const bubble = add([
+  const bubble = game.add([
     sprite(Sprite.Bubble),
     pos(player.pos),
     move(getDirection(player.screenPos()!, mousePos()), SPEED),

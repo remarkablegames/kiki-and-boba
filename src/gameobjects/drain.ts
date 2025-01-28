@@ -1,6 +1,7 @@
 import { Sprite, Tag } from '../constants'
 import { insideCoordinates } from '../helpers'
 import type { Enemy } from '../types'
+import { game } from '.'
 
 enum Lifespan {
   Min = 5,
@@ -8,7 +9,7 @@ enum Lifespan {
 }
 
 export function addDrain() {
-  const drain = add([
+  const drain = game.add([
     sprite(Sprite.Drain),
     pos(insideCoordinates()),
     area({ scale: 0.7 }),

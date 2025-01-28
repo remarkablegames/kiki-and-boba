@@ -1,8 +1,7 @@
 import { Sound, Sprite, State, Tag } from '../constants'
 import { addEnemyState } from '../events'
 import { gameState, outsideCoordinates } from '../helpers'
-import { getChildBubble, hurtPlayer } from '.'
-import { incrementScore } from './score'
+import { game, getChildBubble, hurtPlayer, incrementScore } from '.'
 
 export function addEnemy() {
   const damage = randi(1, 10)
@@ -10,7 +9,7 @@ export function addEnemy() {
   const speed = randi(100, 300) * gameState.enemy.multiplier.speed
   const { sprites } = gameState.enemy
 
-  const enemy = add([
+  const enemy = game.add([
     sprite(sprites[randi(sprites.length)]),
     pos(outsideCoordinates()),
     anchor('center'),

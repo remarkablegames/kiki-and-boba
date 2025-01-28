@@ -3,6 +3,7 @@ import {
   addAvatar,
   addDrain,
   addEnemy,
+  addGame,
   addHealth,
   addPlayer,
   addScore,
@@ -12,6 +13,7 @@ import {
 import { gameState, levels } from '../helpers'
 
 scene(Scene.Game, () => {
+  addGame()
   gameState.init()
 
   addText({

@@ -1,7 +1,9 @@
 import { Scene, Sound } from '../constants'
-import { addButton, addPlayer, addText } from '../gameobjects'
+import { addButton, addGame, addPlayer, addText } from '../gameobjects'
 
 scene(Scene.Tutorial, () => {
+  addGame()
+
   const { x } = center()
 
   addButton({
