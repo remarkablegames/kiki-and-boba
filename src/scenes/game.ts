@@ -5,18 +5,21 @@ import {
   addEnemy,
   addGame,
   addHealth,
+  addMusic,
   addPause,
   addPlayer,
   addScore,
   addText,
   game,
-  playMusic,
+  music,
 } from '../gameobjects'
 import { gameState, levels } from '../helpers'
 
 scene(Scene.Game, () => {
-  addGame()
   gameState.init()
+
+  addMusic()
+  music.play()
 
   addText({
     width: 600,
@@ -27,7 +30,7 @@ scene(Scene.Game, () => {
   })
 
   addScore()
-  playMusic()
+  addGame()
   addPause()
 
   const player = addPlayer()

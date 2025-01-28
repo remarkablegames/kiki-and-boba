@@ -1,7 +1,7 @@
 import type { TweenController } from 'kaplay'
 
 import { Scene } from '../constants'
-import { addButton, game, stopMusic } from '.'
+import { addButton, game, music } from '.'
 
 export function addPause() {
   let currentTween: TweenController
@@ -50,7 +50,7 @@ export function addPause() {
     text: 'Exit',
     onClick() {
       go(Scene.Title)
-      stopMusic()
+      music.stop()
     },
     parent: pauseMenu,
   })

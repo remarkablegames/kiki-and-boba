@@ -1,6 +1,6 @@
 import { Expression, Scene, Sound, Sprite, Tag } from '../constants'
 import { addAttack, addCursorKeys } from '../events'
-import { getAvatar, getChildBubble, stopMusic } from '../gameobjects'
+import { getAvatar, getChildBubble, music } from '../gameobjects'
 import { gameState } from '../helpers'
 import type { Player } from '../types'
 import { game } from '.'
@@ -48,7 +48,7 @@ export function addPlayer(x = center().x, y = center().y) {
     player.destroy()
 
     wait(3, () => {
-      stopMusic()
+      music.stop()
       play(Sound.Whoosh)
       go(Scene.Lose)
     })
