@@ -1,10 +1,10 @@
 import { Layer } from '../constants'
-import type { Player } from '../types'
+import { getPlayer } from '.'
 
 const WIDTH = 300
 const HEIGHT = 30
 
-export function addHealth(player: Player) {
+export function addHealth() {
   const background = add([
     rect(WIDTH, HEIGHT),
     pos(30, height() - 60),
@@ -18,6 +18,8 @@ export function addHealth(player: Player) {
     pos(0, 0),
     color(255, 0, 0),
   ])
+
+  const player = getPlayer()!
 
   function updateHealth() {
     health.width = (player.hp() / player.maxHP()!) * WIDTH

@@ -33,8 +33,8 @@ scene(Scene.Game, () => {
   addGame()
   addPause()
 
-  const player = addPlayer()
-  addHealth(player)
+  addPlayer()
+  addHealth()
   addAvatar()
 
   levels.forEach((level) => {
