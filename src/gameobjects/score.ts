@@ -5,9 +5,11 @@ import { addReward } from '.'
 
 let score: Score
 
+const CHARACTER_WIDTH = 40
+
 export function addScore() {
-  const textbox = add([
-    rect(70, 70),
+  const box = add([
+    rect(CHARACTER_WIDTH, 60),
     pos(50, 50),
     anchor('center'),
     color(255, 255, 255),
@@ -15,7 +17,7 @@ export function addScore() {
     z(Layer.Foreground),
   ])
 
-  const score = textbox.add([
+  const score = box.add([
     text('0', { size: 48 }),
     anchor('center'),
     color(0, 0, 0),
@@ -37,6 +39,8 @@ export function getScore() {
 export function incrementScore(value = 1) {
   const newScore = parseInt(score.text, 10) + value
   score.text = newScore.toString()
+
+  score.parent!.width = CHARACTER_WIDTH * score.text.length
 
   if (newScore === gameState.reward.score) {
     gameState.reward.increment += 1
