@@ -1,5 +1,7 @@
 import type { GameObj } from 'kaplay'
 
+import { Layer } from '../constants'
+
 interface Props {
   width: number
   height: number
@@ -16,6 +18,7 @@ export function addText(props: Props) {
     pos(props.x, props.y),
     anchor('center'),
     color(255, 255, 255),
+    z(Layer.Background),
   ]
 
   let box
@@ -30,5 +33,6 @@ export function addText(props: Props) {
     text(props.text, { size: props.fontSize }),
     anchor('center'),
     color(0, 0, 0),
+    opacity(1),
   ])
 }
