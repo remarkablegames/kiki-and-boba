@@ -44,7 +44,7 @@ export function addPause() {
     text: 'Exit',
     onClick() {
       go(Scene.Title)
-      music.stop()
+      music?.stop()
     },
     parent: pauseMenu,
   })

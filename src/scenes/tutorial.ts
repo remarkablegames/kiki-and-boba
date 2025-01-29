@@ -11,6 +11,7 @@ import {
   addReward,
   addScore,
   addText,
+  game,
 } from '../gameobjects'
 import { gameState } from '../helpers'
 
@@ -118,7 +119,7 @@ scene(Scene.Tutorial, () => {
   const { x } = center()
 
   instructions.forEach((instruction, index) => {
-    wait(instruction.start, () => {
+    game.wait(instruction.start, () => {
       if (instruction.start) {
         play(Sound.Shoot, { detune: index * 100 })
       }
