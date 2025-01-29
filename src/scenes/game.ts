@@ -48,14 +48,14 @@ scene(Scene.Game, () => {
       game.loop(
         level.loop.enemy,
         addEnemy,
-        duration && duration / level.loop.enemy,
+        duration && Math.ceil(duration / level.loop.enemy),
         true,
       )
 
       game.loop(
-        level.loop.enemy,
+        level.loop.drain,
         addDrain,
-        duration && duration / level.loop.drain,
+        duration && Math.ceil(duration / level.loop.drain),
         true,
       )
     })
