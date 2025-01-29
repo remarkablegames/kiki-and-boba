@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/remarkablegames/bubble-gun/compare/v1.2.0...v1.2.1) (2025-01-29)
+
+
+### Bug Fixes
+
+* **scenes:** fix pause in tutorial ([946e048](https://github.com/remarkablegames/bubble-gun/commit/946e048ac6544115a891b0e6dbc1a0113e974ede))
+
 ## [1.2.0](https://github.com/remarkablegames/bubble-gun/compare/v1.1.0...v1.2.0) (2025-01-29)
 
 
