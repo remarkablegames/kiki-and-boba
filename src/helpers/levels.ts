@@ -72,7 +72,7 @@ export const levels = [
     start: 3 * MINUTE,
     end: 4 * MINUTE,
     loop: {
-      enemy: 3,
+      enemy: 4,
       drain: 15,
     },
     enemies: [Sprite.Pokey],
@@ -88,8 +88,8 @@ export const levels = [
     start: 4 * MINUTE,
     end: 5 * MINUTE,
     loop: {
-      enemy: 3,
-      drain: 20,
+      enemy: 4,
+      drain: 15,
     },
     enemies: [Sprite.Gooba, Sprite.Bubbie, Sprite.Pokey],
     multiplier: {
@@ -99,13 +99,13 @@ export const levels = [
     },
   },
 
-  // 5 - ∞
+  // 5 - 6
   {
     start: 5 * MINUTE,
-    end: undefined,
+    end: 6 * MINUTE,
     loop: {
       enemy: 1,
-      drain: 30,
+      drain: 20,
     },
     enemies: [
       Sprite.Bubbie,
@@ -118,6 +118,28 @@ export const levels = [
       damage: 2,
       health: 2,
       speed: 2,
+    },
+  },
+
+  // 6 - ∞
+  {
+    start: 6 * MINUTE,
+    end: undefined,
+    loop: {
+      enemy: 0.5,
+      drain: 30,
+    },
+    enemies: [
+      Sprite.Bubbie,
+      Sprite.Gooba,
+      Sprite.Shellie,
+      Sprite.Spiny,
+      Sprite.Pokey,
+    ],
+    multiplier: {
+      damage: 2.5,
+      health: 2.5,
+      speed: 2.5,
     },
   },
 ]
