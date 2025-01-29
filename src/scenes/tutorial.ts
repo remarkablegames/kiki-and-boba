@@ -14,7 +14,17 @@ import {
 } from '../gameobjects'
 import { gameState } from '../helpers'
 
+const INSTRUCTION_MARGIN = 100
+
 const instructions = [
+  {
+    start: 0,
+    text: 'Press P or ESC to pause',
+    action() {
+      addPause()
+    },
+  },
+
   {
     start: 2,
     text: 'WASD or arrow keys to move',
@@ -29,14 +39,6 @@ const instructions = [
 
   {
     start: 6,
-    text: 'Press P or ESC to pause',
-    action() {
-      addPause()
-    },
-  },
-
-  {
-    start: 8,
     text: 'Score is at the top left',
     action() {
       addScore()
@@ -44,7 +46,7 @@ const instructions = [
   },
 
   {
-    start: 10,
+    start: 8,
     text: 'Health is at the bottom left',
     action() {
       addHealth()
@@ -53,7 +55,7 @@ const instructions = [
   },
 
   {
-    start: 12,
+    start: 10,
     text: 'Shoot bubbles at enemies',
     action() {
       gameState.enemy.sprites = [Sprite.Spiny]
@@ -62,7 +64,7 @@ const instructions = [
   },
 
   {
-    start: 22,
+    start: 20,
     text: 'Enemies in a bubble will fall down the drain',
     action() {
       gameState.enemy.sprites = [Sprite.Spiny]
@@ -72,7 +74,7 @@ const instructions = [
   },
 
   {
-    start: 32,
+    start: 30,
     text: 'Avoid enemies & projectiles',
     action() {
       gameState.enemy.sprites = [Sprite.Bubbie, Sprite.Pokey]
@@ -81,7 +83,7 @@ const instructions = [
   },
 
   {
-    start: 42,
+    start: 40,
     text: 'Upgrade when you reach a certain score',
     action() {
       addReward()
@@ -89,9 +91,23 @@ const instructions = [
   },
 
   {
-    start: 52,
+    start: 50,
     text: 'Aim for a high score & have fun!',
-    action() {},
+    action() {
+      addButton({
+        width: 220,
+        height: 80,
+        radius: 8,
+        x: center().x,
+        y: height() - INSTRUCTION_MARGIN,
+        text: 'Play',
+        onClick() {
+          play(Sound.Shoot)
+          go(Scene.Game)
+        },
+        fixed: true,
+      })
+    },
   },
 ]
 
@@ -100,31 +116,18 @@ scene(Scene.Tutorial, () => {
   addPlayer()
 
   const { x } = center()
-  const margin = 100
-
-  addButton({
-    width: 220,
-    height: 80,
-    radius: 8,
-    x,
-    y: height() - margin,
-    text: 'Play',
-    onClick() {
-      play(Sound.Shoot)
-      go(Scene.Game)
-    },
-    fixed: true,
-  })
 
   instructions.forEach((instruction, index) => {
     wait(instruction.start, () => {
-      play(Sound.Shoot, { detune: index * 100 })
+      if (instruction.start) {
+        play(Sound.Shoot, { detune: index * 100 })
+      }
       instruction.action()
 
       addText({
         ...getWidthAndHeight(instruction.text),
         x,
-        y: margin * (index + 1),
+        y: INSTRUCTION_MARGIN * (index + 1),
         text: instruction.text,
       }).fadeIn(1)
     })
