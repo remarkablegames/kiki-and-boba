@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.2.0](https://github.com/remarkablegames/bubble-gun/compare/v1.1.0...v1.2.0) (2025-01-29)
+
+
+### Features
+
+* **helpers:** add more rewards ([fbdfaa1](https://github.com/remarkablegames/bubble-gun/commit/fbdfaa15023ab480ac2d34e5054e263a5c48bd76))
+* **helpers:** balance levels ([10cee79](https://github.com/remarkablegames/bubble-gun/commit/10cee79b361dee7ee1dfbe47b9d8829e1faba35e))
+* **scenes:** add button to go to title in lose ([63d3ced](https://github.com/remarkablegames/bubble-gun/commit/63d3ced43dbdfc806b3ac791ef461c4a30401146))
+* **scenes:** add instructions to tutorial ([a1ddce7](https://github.com/remarkablegames/bubble-gun/commit/a1ddce70bf32c0928b86bd5e299b8d39721fb505))
+
+
+### Bug Fixes
+
+* **gameobjects:** fix score width when text becomes long ([22c310b](https://github.com/remarkablegames/bubble-gun/commit/22c310be2415787248be00cd6c93a890effebc92))
+* **scenes:** correct drain loop interval ([d5e8f44](https://github.com/remarkablegames/bubble-gun/commit/d5e8f4407de2cbfe026b76e579c24713f99507cd))
+* **scenes:** don't show play button until tutorial is done ([56865dd](https://github.com/remarkablegames/bubble-gun/commit/56865dd89161b79fdb97ca0760cc31d38258b213))
+
+
+### Performance Improvements
+
+* **sprites:** optimize images ([e79b522](https://github.com/remarkablegames/bubble-gun/commit/e79b522cc9adf76b7d59c72d3cdc8629d7cd560d))
+
 ## [1.1.0](https://github.com/remarkablegames/bubble-gun/compare/v1.0.2...v1.1.0) (2025-01-28)
 
 
