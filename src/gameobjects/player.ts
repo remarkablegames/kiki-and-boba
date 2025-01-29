@@ -21,6 +21,7 @@ export function addPlayer(x = center().x, y = center().y) {
       attack: {
         bubbleDamage: 20,
         bubbleSpeed: 200,
+        bubbleSize: 1,
         delay: 1,
         lastFired: -1,
       },

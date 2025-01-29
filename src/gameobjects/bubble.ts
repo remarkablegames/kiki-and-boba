@@ -16,7 +16,7 @@ export function addBubble(player: Player) {
     area({ scale: 0.7 }),
     offscreen({ destroy: true }),
     anchor('center'),
-    scale(0.1),
+    scale(0.1 * player.attack.bubbleSize),
     Tag.Bubble,
     { damage: player.attack.bubbleDamage },
   ])

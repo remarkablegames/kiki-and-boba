@@ -1,57 +1,5 @@
-import { addButton, addModal, addText, game, getPlayer } from '.'
-
-const rewards = [
-  {
-    text: 'Heal 20% HP',
-    action() {
-      const player = getPlayer()!
-      player.heal(player.maxHP()! * 0.2)
-    },
-  },
-
-  {
-    text: 'Max HP +10%',
-    action() {
-      const player = getPlayer()!
-      const maxHP = player.maxHP()!
-      const hpIncrease = maxHP * 0.1
-      player.setMaxHP(maxHP + hpIncrease)
-      player.heal(hpIncrease)
-    },
-  },
-
-  {
-    text: 'Player Speed +10%',
-    action() {
-      const player = getPlayer()!
-      player.speed *= 1.1
-    },
-  },
-
-  {
-    text: 'Fire Rate +10%',
-    action() {
-      const player = getPlayer()!
-      player.attack.delay *= 0.9
-    },
-  },
-
-  {
-    text: 'Bubble Damage +10%',
-    action() {
-      const player = getPlayer()!
-      player.attack.bubbleDamage *= 1.1
-    },
-  },
-
-  {
-    text: 'Bubble Speed +10%',
-    action() {
-      const player = getPlayer()!
-      player.attack.bubbleSpeed *= 1.1
-    },
-  },
-]
+import { getRewards } from '../helpers'
+import { addButton, addModal, addText, game } from '.'
 
 export function addReward() {
   game.reward = true
@@ -61,7 +9,7 @@ export function addReward() {
   const { x, y } = center()
 
   const rewardMenu = modal.add([
-    rect(500, 400),
+    rect(520, 400),
     color(255, 255, 255),
     outline(4),
     anchor('center'),
@@ -81,6 +29,8 @@ export function addReward() {
   })
 
   getRewards().forEach((reward, index) => {
+    reward.setPercentage()
+
     addButton({
       width: reward.text.length * 25,
       height: 80,
@@ -107,15 +57,4 @@ export function addReward() {
   )
 
   rewardMenu.hidden = false
-}
-
-function getRewards(total = 2) {
-  const result = []
-  const copy = rewards.slice()
-
-  for (let i = 0; i < total; i++) {
-    result.push(copy.splice(randi(copy.length), 1)[0])
-  }
-
-  return result
 }
