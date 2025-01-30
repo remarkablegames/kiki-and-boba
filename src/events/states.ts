@@ -1,11 +1,13 @@
 import { Animation, Sprite, State } from '../constants'
 import { addBadBubble, addProjectile, getPlayer } from '../gameobjects'
+import { gameState } from '../helpers'
 import type { Enemy } from '../types'
 
 export function addEnemyState(enemy: Enemy) {
   enemy.onStateEnter(State.Idle, () => {
     enemy.play(Animation.Idle)
-    wait(rand(0.3, 1), () => enemy.enterState(State.Move))
+    const seconds = rand(0.3, 1)
+    wait(seconds, () => enemy.enterState(State.Move))
   })
 
   enemy.onStateEnter(State.Move, () => {
@@ -36,12 +38,14 @@ export function addEnemyState(enemy: Enemy) {
 
   enemy.onStateEnter(State.Cooldown, () => {
     enemy.play(Animation.Cooldown)
-    wait(rand(1, 3), () => enemy.enterState(State.Move))
+    const seconds = rand(1, 3)
+    wait(seconds, () => enemy.enterState(State.Move))
   })
 
   enemy.onStateEnter(State.Stunned, () => {
     enemy.play(Animation.Stunned)
-    wait(rand(0.3, 1), () => enemy.enterState(State.Move))
+    const seconds = rand(0.3, 1) * gameState.player.bubble.stun
+    wait(seconds, () => enemy.enterState(State.Move))
   })
 
   enemy.onStateUpdate(State.Move, () => {

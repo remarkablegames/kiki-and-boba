@@ -13,8 +13,9 @@ class GameState {
   player = {
     bubble: {
       damage: 20,
-      speed: 200,
       size: 1,
+      speed: 200,
+      stun: 1,
     },
   }
 

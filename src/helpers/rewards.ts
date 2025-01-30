@@ -93,6 +93,20 @@ const rewards = [
       gameState.player.bubble.size *= (100 + this.percentage) / 100
     },
   },
+
+  // bubble stun
+  {
+    percentage: 0,
+    setPercentage(percentage = randi(10, 25)) {
+      this.percentage = percentage
+    },
+    get text() {
+      return `Bubble Stun +${this.percentage}%`
+    },
+    action() {
+      gameState.player.bubble.stun *= (100 + this.percentage) / 100
+    },
+  },
 ]
 
 export function getRewards(total = 2) {
