@@ -13,10 +13,10 @@ import {
   game,
   music,
 } from '../gameobjects'
-import { gameState, levels } from '../helpers'
+import { gameState, levels, resetGameState } from '../helpers'
 
 scene(Scene.Game, () => {
-  gameState.init()
+  resetGameState()
 
   addMusic()
   music.play()

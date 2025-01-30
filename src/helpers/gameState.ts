@@ -14,16 +14,10 @@ class GameState {
     score: 5,
     increment: 5,
   }
-
-  init() {
-    this.enemy.multiplier.damage = 1
-    this.enemy.multiplier.health = 1
-    this.enemy.multiplier.speed = 1
-    this.enemy.sprites = []
-
-    this.reward.score = 5
-    this.reward.increment = 5
-  }
 }
 
-export const gameState = new GameState()
+export let gameState = new GameState()
+
+export function resetGameState() {
+  gameState = new GameState()
+}
