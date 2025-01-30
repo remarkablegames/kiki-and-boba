@@ -20,10 +20,11 @@ Play the game on:
 ## How to Play
 
 - Move with WASD or arrow keys
-- Left click to shoot a bubble
-- Enemies will pop if they get hit with too many bubbles
-- Bubbled enemies can fall down the drain
+- Left-click to shoot a bubble
+- Shoot bubbles at enemies
+- Enemies in a bubble will fall down the drain
 - Avoid enemies and projectiles
+- Choose a reward when you reach a certain score
 
 ## Credits
 
