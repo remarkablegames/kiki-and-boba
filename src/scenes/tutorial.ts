@@ -70,7 +70,7 @@ const instructions = [
     action() {
       gameState.enemy.sprites = [Sprite.Spiny]
       addEnemy()
-      addDrain()
+      Array(3).fill(null).forEach(addDrain)
     },
   },
 
@@ -78,8 +78,10 @@ const instructions = [
     start: 30,
     text: 'Avoid enemies & projectiles',
     action() {
-      gameState.enemy.sprites = [Sprite.Bubbie, Sprite.Pokey]
-      addEnemy()
+      ;[Sprite.Bubbie, Sprite.Pokey].forEach((sprite) => {
+        gameState.enemy.sprites = [sprite]
+        addEnemy()
+      })
     },
   },
 
@@ -92,7 +94,7 @@ const instructions = [
   },
 
   {
-    start: 50,
+    start: 42,
     text: 'Aim for a high score & have fun!',
     action() {
       addButton({
