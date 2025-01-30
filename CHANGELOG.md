@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.0](https://github.com/remarkablegames/bubble-gun/compare/v1.2.1...v1.3.0) (2025-01-30)
+
+
+### Features
+
+* **gameobjects:** increase multiple bubble damage and max scale ([ee86a21](https://github.com/remarkablegames/bubble-gun/commit/ee86a2112cf65139a29bfe208918b91a1f5e22f6))
+* **helpers:** add reward bubble stun ([640c076](https://github.com/remarkablegames/bubble-gun/commit/640c076b1633c00817303bc1269c2e5ebd98e41d))
+* **scenes:** add more drains and enemies to tutorial ([8a298ad](https://github.com/remarkablegames/bubble-gun/commit/8a298ad20eaee3e991e7012f04fb1c4b3e7a15ca))
+
 ## [1.2.1](https://github.com/remarkablegames/bubble-gun/compare/v1.2.0...v1.2.1) (2025-01-29)
 
 
