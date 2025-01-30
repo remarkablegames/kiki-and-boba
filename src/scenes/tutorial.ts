@@ -13,7 +13,7 @@ import {
   addText,
   game,
 } from '../gameobjects'
-import { gameState } from '../helpers'
+import { gameState, resetGameState } from '../helpers'
 
 const INSTRUCTION_MARGIN = 100
 
@@ -113,6 +113,7 @@ const instructions = [
 ]
 
 scene(Scene.Tutorial, () => {
+  resetGameState()
   addGame()
   addPlayer()
 
