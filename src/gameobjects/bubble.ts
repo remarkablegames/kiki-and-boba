@@ -5,6 +5,9 @@ import { getDirection } from '../helpers'
 import type { Bubble, ChildBubble, Enemy, Player } from '../types'
 import { game } from '.'
 
+const SCALE_MIN = 0.1
+const SCALE_MAX = 0.2
+
 export function addBubble(player: Player) {
   const bubble = game.add([
     sprite(Sprite.Bubble),
@@ -16,7 +19,7 @@ export function addBubble(player: Player) {
     area({ scale: 0.7 }),
     offscreen({ destroy: true }),
     anchor('center'),
-    scale(0.1 * player.attack.bubbleSize),
+    scale(SCALE_MIN * player.attack.bubbleSize),
     Tag.Bubble,
     { damage: player.attack.bubbleDamage },
   ])
@@ -53,11 +56,11 @@ export function addBubble(player: Player) {
       bubble.destroy()
     }
 
-    if (currentBubble.scale.x > 0.2) {
+    if (currentBubble.scale.x > SCALE_MAX * player.attack.bubbleSize) {
       currentBubble.destroy()
     } else {
       currentBubble.scaleBy(1.1)
-      currentBubble.damage *= 1.5
+      currentBubble.damage *= 2
     }
   })
 
