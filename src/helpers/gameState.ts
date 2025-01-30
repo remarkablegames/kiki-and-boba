@@ -10,6 +10,14 @@ class GameState {
     sprites: [] as Sprite[],
   }
 
+  player = {
+    bubble: {
+      damage: 20,
+      speed: 200,
+      size: 1,
+    },
+  }
+
   reward = {
     score: 5,
     increment: 5,

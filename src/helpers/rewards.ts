@@ -1,4 +1,5 @@
 import { getPlayer } from '../gameobjects'
+import { gameState } from '../helpers'
 
 const rewards = [
   // heal hp
@@ -75,8 +76,7 @@ const rewards = [
       return `Bubble Damage +${this.percentage}%`
     },
     action() {
-      const player = getPlayer()!
-      player.attack.bubbleDamage *= (100 + this.percentage) / 100
+      gameState.player.bubble.damage *= (100 + this.percentage) / 100
     },
   },
 
@@ -90,8 +90,7 @@ const rewards = [
       return `Bubble Size +${this.percentage}%`
     },
     action() {
-      const player = getPlayer()!
-      player.attack.bubbleSize *= (100 + this.percentage) / 100
+      gameState.player.bubble.size *= (100 + this.percentage) / 100
     },
   },
 ]

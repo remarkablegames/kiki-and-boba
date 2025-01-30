@@ -1,7 +1,7 @@
 import type { GameObj } from 'kaplay'
 
 import { Sound, Sprite, Tag } from '../constants'
-import { getDirection } from '../helpers'
+import { gameState, getDirection } from '../helpers'
 import type { Bubble, ChildBubble, Enemy, Player } from '../types'
 import { game } from '.'
 
@@ -14,14 +14,14 @@ export function addBubble(player: Player) {
     pos(player.pos),
     move(
       getDirection(player.screenPos()!, mousePos()),
-      player.attack.bubbleSpeed,
+      gameState.player.bubble.speed,
     ),
     area({ scale: 0.7 }),
     offscreen({ destroy: true }),
     anchor('center'),
-    scale(SCALE_MIN * player.attack.bubbleSize),
+    scale(SCALE_MIN * gameState.player.bubble.size),
     Tag.Bubble,
-    { damage: player.attack.bubbleDamage },
+    { damage: gameState.player.bubble.damage },
   ])
 
   bubble.onCollide(Tag.Enemy, (enemy) => {
@@ -56,7 +56,7 @@ export function addBubble(player: Player) {
       bubble.destroy()
     }
 
-    if (currentBubble.scale.x > SCALE_MAX * player.attack.bubbleSize) {
+    if (currentBubble.scale.x > SCALE_MAX * gameState.player.bubble.size) {
       currentBubble.destroy()
     } else {
       currentBubble.scaleBy(1.1)
